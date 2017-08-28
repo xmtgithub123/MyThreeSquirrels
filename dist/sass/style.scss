@@ -323,12 +323,73 @@ body {
 	.tan_box_left{top: -17px;left: -7px;z-index: 4;}
 	.pao_title{top: 20px;z-index: 4;}
 	.pao_title img{width: 110px;height: 60px;}
-	.qssb_title{top: 320px;right: 0;left: 0;margin: auto;text-align: center;display: block;}
-	.qssb_title img{width:260px;height: 35px;}
+	.qssb_title{top: 290px;right: 0;left: 0;margin: auto;text-align: center;display: block;}
+	.qssb_title img{width:220px;}
 	.shou_ta{    top: 0;right: -23px;z-index: 4;}
 	.shou_ta img{width: 98px;height: 151px;}
 }
 
+	.strat_but img{width:86px;height:87px;border-radius: 50%;}
+	.strat_but{margin: 0 auto;text-align: center;padding-top: 330px;}
+
+	.meng_box{width:100%;height:100%;background-color:rgba(0,0,0,0.7); background-size: 100%;position: fixed; top: 0; z-index:10;}
+	.meng img{width: 187px;height: 93px;}
+	.meng_top{width: 305px;height: 38px;background: #fff;top: 32px;right: 0;left: 0; margin: auto;border-radius: 25px;}
+	.meng{ width: 61%; top: 85px;right: 0;left: 0;margin: auto;text-align: right;}
+
+
+/*按钮Q弹效果*/
+@-webkit-keyframes rubberBand {
+  	  0%{transform: scale(.95,.95);-webkit-transform: scale(.95,.95);}
+ 	50%{transform: scale(1,1);-webkit-transform: scale(1,1);}
+	100%{transform: scale(.95,.95);-webkit-transform: scale(.95,.95);}
+	}
+
+@keyframes rubberBand {
+	0%{transform: scale(.95,.95);-webkit-transform: scale(.95,.95);}
+ 	50%{transform: scale(1,1);-webkit-transform: scale(1,1);}
+	100%{transform: scale(.95,.95);-webkit-transform: scale(.95,.95);}
+	}
+
+.rubberBand {animation: rubberBand 2s linear infinite;-webkit-animation: rubberBand 2s linear infinite;}
+
+.tmall_up{animation:tmall_up 0.3s linear forwards;-webkit-animation:tmall_up 0.3s linear forwards;} 
+@-webkit-keyframes tmall_up 
+{
+    0%   {top:40px;}
+    100% {top:17px;}
+}
+@keyframes tmall_up 
+{
+     0%  {top:40px;}
+    100% {top:17px;}
+}
+
+.page3_tmall_up{animation:page3_tmall_up 1s linear forwards;-webkit-animation:page3_tmall_up 1s linear forwards;} 
+@-webkit-keyframes page3_tmall_up 
+{
+    0%   {top:40px;}
+    100% {top:17px;}
+}
+@keyframes page3_tmall_up 
+{
+     0%  {top:40px;}
+    100% {top:17px;}
+}
+
+.page3_tmall_up2{animation:page3_tmall_up2 5s linear forwards;-webkit-animation:page3_tmall_up2 5s linear forwards;} 
+@-webkit-keyframes page3_tmall_up2 
+{
+    0%   {top:40px;}
+    90% {top:17px;}
+    100%{opacity: 0;}
+}
+@keyframes page3_tmall_up2 
+{
+     0%  {top:40px;}
+     90% {top:17px;}
+    100%{opacity: 0;}
+}
 
 /*盒子右边滑动*/
 .box_right{
@@ -529,6 +590,10 @@ body {
 		transform: translateY(0)
 	}
 }
+.fadeInDown2 {
+	    animation:fadeInDown2 0.5s linear forwards;
+-webkit-animation:fadeInDown2 0.5s linear forwards;
+}
 /* 向上淡出*/
 @-webkit-keyframes fadeInUp {
 	0% {
@@ -562,6 +627,63 @@ body {
     -webkit-animation:fadeInUp 0.1s linear forwards;
 }
 
+
+@-webkit-keyframes fadeInUp2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(15px);
+		transform: translateY(15px)
+	}
+    
+	40% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px)
+	}
+	60%{
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px)
+	}
+	
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(11px);
+		transform: translateY(11px)
+	}
+	
+}
+
+@keyframes fadeInUp2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(15px);
+		transform: translateY(15px)
+	}
+    
+	40% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px)
+	}
+	60%{
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px)
+	}
+	
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(11px);
+		transform: translateY(11px)
+	}
+	
+}
+
+.fadeInUp2 {
+	        animation:fadeInUp2 1.3s linear forwards;
+    -webkit-animation:fadeInUp2 1.3s linear forwards;
+}
 /* bling光*/
 @-webkit-keyframes flash {
 	0%,50%{
@@ -703,4 +825,40 @@ body {
 .bounceIn {
 	        animation:bounceIn 2s linear forwards;
     -webkit-animation:bounceIn 2s linear forwards;
+}
+
+
+@-webkit-keyframes first_up {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(10px);
+		transform: translateY(10px)
+	}
+}
+
+@keyframes first_up {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-10px);
+		-ms-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(10px);
+		-ms-transform: translateY(10px);
+		transform: translateY(10px)
+	}
+}
+	
+.first_up {
+	    animation:first_up 0.5s linear forwards;
+-webkit-animation:first_up 0.5s linear forwards;
 }
