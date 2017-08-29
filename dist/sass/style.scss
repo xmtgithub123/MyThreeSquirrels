@@ -336,7 +336,88 @@ body {
 	.meng img{width: 187px;height: 93px;}
 	.meng_top{width: 305px;height: 38px;background: #fff;top: 32px;right: 0;left: 0; margin: auto;border-radius: 25px;}
 	.meng{ width: 61%; top: 85px;right: 0;left: 0;margin: auto;text-align: right;}
+    .boom_box img{width: 27px;height: 260px;}
+	.boom_box{top: -50px;right:0;}
+    
+	/*开始拼图*/
+	.page3_box_bg{text-align: left;top:0;}
+	.page3_box_bg img{width:336px;height:220px;}
+	.wen_box img,.music_box img{width: 30px;height: 30px;border-radius: 50%;}
+	.page2_box{width: 96%;margin:45px auto 0;text-align: center;height: 27px;}
+	.wen_box{top:35px;left: -2px;}
+	.music_box{top:36px;right: -5px;z-index: 12;}
+	.buzou_box{z-index: 12;    top: 36px;
+    left: 38px;}
+	.buzou{background:url(http://wrigley.image.alimmdn.com/h5/butbig_bg29527.png) no-repeat;width: 296px;height: 32px;background-size:100%;}
+	.buzou span{display: block;}
+	.buzou_bg{width: 295px;height: 24px;}
+	.buzou_bg_one{background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_1.png) no-repeat; width:75px; height:29px;background-size: 100%;}
+	.buzou_bg_two{background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_2.png) no-repeat;width:74px; height:29px;background-size: 100%;}
+	.buzou_bg_three{background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_3.png) no-repeat;width:74px; height:29px;background-size: 100%;}
+	.buzou_bg_four{background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_4.png) no-repeat;width:78px; height:29px;background-size: 100%;}
+	.hong_dou img{width: 30px;height: 30px;border-radius: 50%;transform:rotate(15deg);-webkit-transform:rotate(15deg);}
+	.hong_dou{z-index: 12;}
+	.hong_dou1{top:0;left: 65px;}
+	.hong_dou2{top:0;left: 65px;}
+	.hong_dou3{top:0;left: 65px;}
+	.hong_dou4{top:0;right: -2px;}
+	.buzou_one{top: 6px;left: 14px;}
+	.buzou_one img{width: 46px;height: 16px;}
+	.buzou_two{top: 6px;left: 10px;}
+	.buzou_two img{width: 47px;height: 16px;}
+	.buzou_three{top: 6px;left: 14px;}
+	.buzou_three img{width: 43px;height: 16px;}
+	.buzou_four{top: 6px;left: 7px;}
+	.buzou_four img{width: 47px;height: 16px;}
+	.one_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_1.png) no-repeat;width: 75px;
+height: 29px;line-height: 33px;background-size: 100%;}
+.one_after img{width: 37px;height: 12px;}
+.two_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_2.png) no-repeat;width: 75px;
+height: 29px;line-height: 33px;background-size: 100%;}
+.two_after img{width: 39px;height: 12px;}
+.three_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_3.png) no-repeat;width: 75px;
+height: 29px;line-height: 34px;background-size: 100%;}
+.three_after img{width: 36px;height: 13px;}
+.two_before,.three_before,.four_before{margin-top: 8px;}
+.two_before img,.three_before img,.four_before img{width: 36px;height: 15px;}
 
+
+	.buzou1{width: 77px;height: 27px; position: absolute;top: 0;}
+	.buzou2{width: 80px;height: 27px; margin-left: 72px;position: absolute;top: 0;text-align: center;}
+	.buzou3{width: 76px;height: 27px;margin-left: 148px;position: absolute;top: 0;text-align: center;}
+	.buzou4{width: 77px;height: 27px;margin-left: 218px;position: absolute;top: 0;text-align: center;}
+	.common_all{z-index: 9;}
+	.buzou_tiao{}
+	#all_box{width: 315px;height: 200px;position: absolute;z-index: 8;}
+	.swiper_all{}
+	.left300{left: 300px;}
+	.left325{left:325px}
+	.right300{left: -300px;}
+	.word_bg{top: 0px;left: -5px;}
+
+	#all_box{width: 315px;height: 200px;position: absolute;z-index: 8;}
+	.xuanze_box,.xuanze_name,.xuanze_word,.xuanze_to,.pin_bottom_box,.xuanze_wordname,.zuihou_box,.pin_box,.kb_word{margin: 48px auto 0;}
+	.word_bg img{    width: 328px;height: 133px; display: block}
+	.neihe_box{top: 0;text-align: center;width: 315px;}
+	.neihe_box img{width: 313px;height: 176px;}
+	
+	.swiper1_1{width: 315px;height: 176px;overflow: hidden;}
+	.swiper1_2{top: -24px;right: 0;left: 0; margin: auto;width: 81px;height:30px;overflow: hidden;}
+	.box_name{top: 0;margin: auto;text-align: center;}
+	.box_name img{width: 81px;height: 30px;display: block;margin: 0 auto;}
+	.comm_top img{width: 57px;height: 32px;}
+	.comm_top{ width: 315px;top: 0;left: 0;margin: auto;}
+	.word img{width: 302px;height: 129px;    border-radius: 25px}
+	.word { top: 0;left: 5px; margin: auto;text-align: center;transform: rotatex(20deg);    -webkit-transform: rotatex(20deg);}
+	
+	.but_left img,.but_right img{width: 45px!important;height: 45px!important;border-radius: 50%;}
+	.but_left{top:3px;left:48px;z-index: 6;}
+	.but_right{top:-1px;right: 48px;z-index: 6;}
+	.but_right{transform:rotate(180deg);-webkit-transform:rotate(180deg);}
+	.miyu_box img{width: 81px;height: 30px;}
+	.miyu_box{top: 238px; right: 0;left: 0;margin: auto;}
+	.next_but{top:57px;right: 0;left: 0;margin: auto;}
+	.next_but img{width: 86px!important;height: 87px!important;border-radius: 50%;}
 
 /*按钮Q弹效果*/
 @-webkit-keyframes rubberBand {
@@ -861,4 +942,90 @@ body {
 .first_up {
 	    animation:first_up 0.5s linear forwards;
 -webkit-animation:first_up 0.5s linear forwards;
+}
+
+@-webkit-keyframes page3_fadeInDown2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(10px);
+		transform: translateY(10px)
+	}
+}
+
+@keyframes page3_fadeInDown2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-10px);
+		-ms-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(10px);
+		-ms-transform: translateY(10px);
+		transform: translateY(10px)
+	}
+}
+	
+.page3_fadeInDown2 {
+	    animation:page3_fadeInDown2 0.5s linear forwards;
+-webkit-animation:page3_fadeInDown2 0.5s linear forwards;
+}
+
+
+/*左边按钮动画*/
+@-webkit-keyframes butleft {
+	0%,50%,100%{
+		left: 48px;
+	}
+
+	25%,75%{
+		left: 45px;
+	}
+}
+
+@keyframes butleft {
+	0%,50%,100%{
+		left: 48px;
+	}
+
+	25%,75%{
+		left: 45px;
+	}
+}
+.butleft {
+	        animation:butleft 2s linear infinite;
+    -webkit-animation:butleft 2s linear infinite;
+}
+
+/*右边按钮动画*/
+@-webkit-keyframes butright {
+	0%,50%,100%{
+		right: 48px;
+	}
+
+	25%,75%{
+		right: 46px;
+	}
+}
+
+@keyframes butright {
+	0%,50%,100%{
+		right: 48px;
+	}
+
+	25%,75%{
+		right: 46px;
+	}
+}
+.butright {
+	        animation:butright 2s linear infinite;
+    -webkit-animation:butright 2s linear infinite;
 }
