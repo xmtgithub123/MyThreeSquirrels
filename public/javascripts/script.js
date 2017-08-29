@@ -71,6 +71,66 @@ function mybut_right_fuc(){
     if(temple == 0) temple=3;
     var innerhtml = "";
     var innerhtml2 = "";
+	    innerhtml = innerhtml + "  <div id=\"swiper_"+ temple +"\" class=\"pa swiper_all right100\"> ";
+		innerhtml = innerhtml + "       <div id=\"word_"+ fuyu +"\" class=\"word pa\">";//空白文字
+		innerhtml = innerhtml + "            <img src=\"http://wrigley.image.alimmdn.com/h5/neiheword_"+ fuyu +".png\">";
+		innerhtml = innerhtml + "       </div>";
+	    innerhtml = innerhtml + "       <div class=\"neihe_box pa\">";
+	    innerhtml = innerhtml + "            <img src=\"http://wrigley.image.alimmdn.com/h5/neibox_"+ temple +".png\">"; //三个内盒
+	    innerhtml = innerhtml + "       </div>";
+	    innerhtml = innerhtml + "       <div class=\"comm_top pa\"><img src=\"http://wrigley.image.alimmdn.com/h5/myskittles_5732.png\"></div>";
+	 	innerhtml = innerhtml + "       	<div id=\"pin_bottom_"+ fuyu +"\" class=\"pin_bottom pa\">";//密语名称
+	 	if(fuyu!=0){
+			innerhtml = innerhtml + "            	<img src=\"http://wrigley.image.alimmdn.com/h5/bottombg_"+ fuyu +".png\">";
+		}
+		innerhtml = innerhtml + "           </div>";
+		
+		innerhtml = innerhtml + "           <div id=\"pinto_"+ buble +"\" class=\"pinto pinto"+ buble +" pa\">";
+		if(buble!=0){
+		 	innerhtml = innerhtml + "       		<img src=\"http://wrigley.image.alimmdn.com/h5/pinto_"+ buble +".png\">";//气泡
+		 }
+	 	innerhtml = innerhtml + "           </div>";
+	 	innerhtml = innerhtml + "           <div class=\"pa to_name\">";
+	 	innerhtml = innerhtml + "       		<div class=\"pr to_font\">";
+	 	innerhtml = innerhtml + "       			<font id=\"to_name\">";
+	 	if(word!=""){
+	 		innerhtml = innerhtml + word;       			
+	 	}
+	 	innerhtml = innerhtml + "       			</font>";//气泡文字
+	 	innerhtml = innerhtml + "       		</div>";
+	 	innerhtml = innerhtml + "       	</div>";
+	    innerhtml = innerhtml + "  </div>";  
+
+		innerhtml2 = innerhtml2 + "	  <div id=\"boxname_"+ temple + "\" class=\"box_name right100 pa\">";
+		innerhtml2 = innerhtml2 + " 		<img src=\"http://wrigley.image.alimmdn.com/h5/kuanshi_" + temple + ".png\">";
+		innerhtml2 = innerhtml2 + "   </div>";
+
+    console.log(innerhtml)
+    $(".swiper1_1").append(innerhtml);
+    $(".swiper1_2").append(innerhtml2);
+    $("#swiper_"+oldTemple).animate({
+		left:"0"
+	},100,function(){
+		$("#swiper_"+oldTemple).hide().remove();
+	});
+
+	$("#swiper_"+temple).animate({
+		left:"0"
+	},100,function(){
+		$("#swiper_"+temple).show();
+	});
+    
+    $("#boxname_"+temple).animate({
+		left:"0"
+	},100,function(){
+		$("#boxname_"+temple).show();
+	});
+
+	$("#boxname_"+oldTemple).animate({
+		left:"130%"
+	},100,function(){
+		$("#boxname_"+oldTemple).remove();
+	});
 
 
 }
