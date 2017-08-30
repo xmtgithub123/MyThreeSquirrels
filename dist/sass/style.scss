@@ -32,6 +32,12 @@ body {
 .ml-35{margin-left:35px;}
 .mr-35{margin-right: 35px;}
 .center {text-align: center;}
+.left300{left: 300px;}
+.left325{left:325px}
+.right300{left: -300px;}
+.left100{left: 130%;}
+.right100{left: -130%;}
+.right180{left: -180%;}
 .page {
 	height: 100%;
 }
@@ -370,16 +376,16 @@ body {
 	.buzou_four{top: 6px;left: 7px;}
 	.buzou_four img{width: 47px;height: 16px;}
 	.one_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_1.png) no-repeat;width: 75px;
-height: 29px;line-height: 33px;background-size: 100%;}
-.one_after img{width: 37px;height: 12px;}
-.two_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_2.png) no-repeat;width: 75px;
-height: 29px;line-height: 33px;background-size: 100%;}
-.two_after img{width: 39px;height: 12px;}
-.three_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_3.png) no-repeat;width: 75px;
-height: 29px;line-height: 34px;background-size: 100%;}
-.three_after img{width: 36px;height: 13px;}
-.two_before,.three_before,.four_before{margin-top: 8px;}
-.two_before img,.three_before img,.four_before img{width: 36px;height: 15px;}
+	height: 29px;line-height: 33px;background-size: 100%;}
+	.one_after img{width: 37px;height: 12px;}
+	.two_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_2.png) no-repeat;width: 75px;
+	height: 29px;line-height: 33px;background-size: 100%;}
+	.two_after img{width: 39px;height: 12px;}
+	.three_after{text-align: center;right: 0;left: 0; margin: auto;background: url(http://wrigley.image.alimmdn.com/h5/buzou7424_3.png) no-repeat;width: 75px;
+	height: 29px;line-height: 34px;background-size: 100%;}
+	.three_after img{width: 36px;height: 13px;}
+	.two_before,.three_before,.four_before{margin-top: 8px;}
+	.two_before img,.three_before img,.four_before img{width: 36px;height: 15px;}
 
 
 	.buzou1{width: 77px;height: 27px; position: absolute;top: 0;}
@@ -418,6 +424,21 @@ height: 29px;line-height: 34px;background-size: 100%;}
 	.miyu_box{top: 238px; right: 0;left: 0;margin: auto;}
 	.next_but{top:57px;right: 0;left: 0;margin: auto;}
 	.next_but img{width: 86px!important;height: 87px!important;border-radius: 50%;}
+
+
+     /*蜜语盒,祝福语*/
+	.miyu_all{position:absolute;top:5px;right: 0!important;left: 0!important;margin: auto;text-align: center;}
+	.fuyu_all{position:absolute;}
+	.fuyu_all img{width: 104px;height: 30px;}
+	.swiper2_1{ width: 293px;height: 132px;overflow: hidden;right: 0;left: 0;margin: auto;}
+	.swiper2_2{width: 104px;height: 30px;top: -24px;left: 0; right: 0; margin: auto; text-align: center;overflow: hidden;}
+	.swiper2_3{top: 110px;right: 0;left: 0;margin: auto; width: 47px;height: 12px;text-align: center;overflow: hidden;}
+	.swiper3_2{top: 12px;right: 0;left: 0; margin: auto; text-align: center;width: 115px;height: 65px; overflow: hidden;}
+	.qndj{top: 238px; right: 0;left: 0;margin: auto;}
+	.qndj img{width: 104px;height: 30px;}
+
+	.pin_bottom{top: 112px;left: 130px;margin: auto;}
+	.pin_bottom img{width: 47px;height: 12px;}
 
 /*按钮Q弹效果*/
 @-webkit-keyframes rubberBand {
