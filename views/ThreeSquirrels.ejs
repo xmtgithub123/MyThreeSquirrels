@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style-threeSquirrels.min.css' />
+    <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script>
+    window.loadingStartTime = new Date()
+  </script>
+  </head>
+  <body>
+	<div class="body-wrap">
+		<!-- 加载页 -->
+	    <div id="loadingPage" class="page loading_page">
+	    	<div class="loading_wrap">
+	    		<div class="loading" id="loading">
+			      <div class="progress" id="progress"></div>
+			      <p>Loading...</p>
+			   </div>
+	    	</div>
+	    	
+	    </div>
+
+		<!-- 欢迎页 -->
+		<div id="welcomePage" class="page welcome_page"></div>
+		
+	    <!-- 游戏规则页 -->
+		<div id="gameRulesPage" class="page game_rules_page"></div>
+		<!-- 游戏页 -->
+		<div id="gamePage" class="page game_page"></div>
+		<!-- 结果页 -->
+		<div id="resultPage" class="page result_page"></div>
+		<!-- 签名图片页 -->
+		<div id="autographPage" class="page autograph_page"></div>
+	</div>
+	
+
+
+
+    <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/threeSquirrels.js"></script>
+  </body>
+</html>
