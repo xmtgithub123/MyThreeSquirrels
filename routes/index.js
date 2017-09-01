@@ -8,5 +8,8 @@ router.get('/', function(req, res, next) {
 router.get('/ThreeSquirrels', function(req, res, next) {
   res.render('ThreeSquirrels', { title: '三只松鼠' });
 });
+router.get('/red', function(req, res, next) {
+  res.render('red', { title: '红包雨' });
+});
 
 module.exports = router;
