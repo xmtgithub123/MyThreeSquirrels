@@ -66,24 +66,50 @@
     var ts_8=0;//榛子
     var ts_13=0;//炸弹
 
+    var num =0;//坚果松鼠增加
+    var numz = 10.0; //10s倒计时
+    var imgNumb = 0;
+    var len=0; //已选中的坚果数
+    var ctime = null;//计时器
+    var clicknumb =0;
+    var ts,wh,ts,top;
+
     $(function(){
         FastClick.attach(document.body); 
         var pageHeight = $(window).height() ;
         $('.game_body').height(pageHeight - 240);
         $('.phtot_show').height($('#autographPage').height() - 240)
         $('.img_container').height($('#autographPage').height() - 240 - 55)
-        add();
-        backWard();
-        // alert('show?')
 
+        
+
+        var imgArr = [1,2,3];
+        var val = imgArr[Math.floor(Math.random()*imgArr.length)]
+        $('.gameAgain').bind('click',function(){
+          window.location.reload(true)
+        })
+        $('.GetPhoto').bind('click',function(){
+            $('#gamePage').hide();
+            $('#autographPage').show();
+            $('.img_container').append("<img src=\"image/photo_"+ val +".png\" class=\"animated fadeInDown photo_img\"\">")
+        })
+        $('#getMore').bind('click',function(){
+            var imgNumb = [1,2,3];
+            var data = imgNumb[Math.floor(Math.random()*imgNumb.length)]
+            $('.photo_img').attr(
+                'src','image/photo_'+data+'.png'
+            )           
+        })  
+        $('#toBuy').bind("click",function(){
+            alert('点击购买元气')
+        })
     })
 
-    var num =0;//坚果松鼠增加
-    var numz = 10; //10s倒计时
-    var imgNumb = 0;
-    var len=0; //已选中的坚果数
-    var ctime = null;//计时器
-    var ts,wh,ts,top;
+
+    
+   
+    
+    
     function random(){
         Wh = parseInt(Math.random() * (70 - 30) + 20);//获取 20<= x <60 的数字
         ts = parseInt(Math.random() * 13 + 1);//获取 1<= x <=13 的数字
@@ -91,14 +117,16 @@
     }
 
 
-    function add() {
+     function add() {
         num ++; 
-        if(num==15){
-            num=1;
-        }
+        // if(num==15){
+        //     num=1;
+        // }
         for(var i=0;i<5;i++){
             random(); 
-            $('.track_ul_'+i).append("<li class='li_" + num + "' ><a onclick='itemsFunc(this)' href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
+            if(numz>0){
+                $('.track_ul_'+i).append("<li class='li_" + num + "' onclick='itemsFunc(this)'><a  href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
+            }
         }
         $(".li_" + num).animate(
             {
@@ -112,16 +140,26 @@
 
          });
 
+       
         // var timerArr = [450,350,400,480];
         // var val = timerArr[Math.floor(Math.random()*timerArr.length)]
         setTimeout(add,500);
     }
-
+   add()
     //8种坚果下落已点击事件
     function itemsFunc(e){
-        var targetClass = $(e).children()[0].className
+        // console.log($(e).children())
+        var $itemParent =$(e).children();
+        
+
+        var targetClass = $itemParent.children()[0].className
+        // console.log(targetClass)
         var targetClassArr = targetClass.split('_');
-        var targetNumb = targetClassArr[1]
+        var targetNumb = targetClassArr[1];
+        if(targetNumb>0 && targetNumb<9){ //点击了坚果 显示对勾
+            $itemParent.append("<img src='image/right.png' class='right'>");
+        }
+        console.log(targetNumb)
         switch(targetNumb){
                 case '1':  
                         if(ts_1==0){
@@ -189,10 +227,10 @@
                         }
                         break;
                 case '13':
+                        //如果点击了炸弹游戏结束
+
                         $(e)[0].innerHTML = " <img src=\"image/4_04.png\" class=\"ts_\" + targetNumb>";
-                        // console.log($(e))
-                        // console.log($(e)[0].innerHTML)
-                        // console.log($(e).context)
+                        
                 
             }
             
@@ -200,32 +238,51 @@
     }   
 
     //倒数计时
-    function backWard() {
-        numz--;
+    function backward() {
+        
+        numz = parseFloat( numz - 0.1).toFixed(1);//倒计时保留一位小数
         if(numz>=0){
-            $(".game_time").html(numz+"s");
+           var numzSplit = numz.split('')
+           // console.log(numzSplit[0]+'-'+numzSplit[2])
+           var old_time_second = numzSplit[0];
+           $('.time_m_first').hide();
+           $('.time_m_second').attr('class','time_m_second').addClass('time_'+numzSplit[0]);
+           $('.time_s').attr('class','time_s').addClass('time_'+numzSplit[2]);
+            //$(".game_time").html(numz+"s");
+
+
+            $('.ts_13').bind('click',function(){
+                //alert('click bomb')
+                $('.game_body').hide();
+                $('.game_mask').show();
+                $('.game_result_unsuccess').show();
+                if(ctime != null){
+                     clearTimeout(ctime);
+                     ctime = null;
+                }
+            })
             if(len==8){
                 if(ctime != null){
                      clearTimeout(ctime);
                      ctime = null;
                 }
+
                 var newNumz = numz;
-                clearTimeout(ctime);
-                $('.game_time').html(newNumz+"s");
+               // clearTimeout(ctime);
+                
+                //$('.game_time').html(newNumz+"s");
                 $('.game_mask').show();
                 $('.game_result_success').show();
                 return false;
             }
         }
         if(numz==0){
-            clearTimeout(ctime);
+            //clearTimeout(ctime);
             $('.game_box').hide();
             if(len<8){
                 $('.game_mask').show();
                 $('.game_result_unsuccess').show();
-                if($('.game_result_unsuccess').css('display')=="block"){
-                    playAgain();
-                }
+
             }
             if(len==8){
                 clearTimeout(ctime);
@@ -233,36 +290,11 @@
                 $('.game_result_success').show();
             }
         }
-        ctime = setTimeout(backWard,1000);
+        ctime = setTimeout(backward,100);
+        
     }
-      
-    function playAgain(){
-        $('.gameAgain').bind('click',function(){
-          window.location.reload(true)
-        })
-        $('.GetPhoto').bind('click',function(){
-            $('#gamePage').hide();
-            $('#autographPage').show();
-            var imgArr = [1,2,3];
-            var val = imgArr[Math.floor(Math.random()*imgArr.length)]
-            console.log(val)
-            // var photoValue = 'photo_'+ val +'.png'
-            // console.log(photoValue)
-            $('.img_container').append("<img src=\"image/photo_"+ val +".png\" class=\"animated fadeInDown photo_img\"\">")
-            $('#getMore').bind('click',function(){
-            var imgArr = [1,2,3];
-            var val = imgArr[Math.floor(Math.random()*imgArr.length)]
-            console.log(val)
-            $('.photo_img').attr({
-                'src':'image/photo_'+val+'.png',
-                'class':'photo_img'
-            })
-            $('#toBuy').bind("click",function(){
-                alert("点击购买元气")
-            })
-        })   
-            
-        })
-    }
-       
+   backward();
     
+ 
+    
+        
