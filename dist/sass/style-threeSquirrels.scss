@@ -25,6 +25,20 @@ body {
     box-sizing: border-box;
     list-style-type: none;
 }
+/*common-css*/
+.img-responsive{
+    max-width: 100%;
+    max-height: 100%;
+}
+.hidden{
+    display: none;
+}
+
+.dis_top,.dis_bottom{
+    height:120px;
+    /*border:1px solid black;*/
+}
+
 .body-wrap{
 	height: 100%;
 	/*display: table;*/
@@ -77,97 +91,257 @@ body {
 
 }
 
+#gamePage {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #00b1be;
+    padding:40px 0;
+    .game_mask{
+        position: fixed;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        background: black;
+        opacity: 0.5;
+        z-index:99;
+    }
+    .game_result_show{
+         position: relative;
 
-/*.game_page {
-    padding:15px;
-    .game_header{
-        height: 50px;
-        border:1px solid #ccc;
+        .game_tooltip_box{
+            position: absolute;
+            left:0;
+            right:0;
+            z-index:100;
+            margin:0 auto;
+            text-align:center;
+            .game_again_btn {
+                height: 3.4rem;
+                position: absolute;
+                left: 20px;
+                right: 0;
+                bottom: 30px;
+
+            }
+            .get_photo_btn{
+                height: 3.4rem;
+                position: absolute;
+                right: 20px;
+                bottom: 30px;
+            }
+        }
+         
+        .game_unsucess ,.game_sucess{
+            max-width:95%;
+        }
+    }
+    .game_result_success{
+        .get_photo_btn{
+                height: 3.4rem;
+                position: absolute;
+                left:0 !important;
+                right: 0 !important;
+                margin:0 auto;
+                bottom: 30px;
+        }
+    }
+    .game_header {
+        .game_type {
+            text-align: center;
+            .type {
+                width:42px;
+                height:37px;
+                /*border:1px solid red;*/
+                display: inline-block;
+                margin:0 auto;
+            }
+            .type_1 {
+                background: url(/image/sprit.png) 0 0;
+            }
+            .type_2 {
+                 width:50px;
+                background: url(/image/sprit.png) -45px 0;
+            }
+            .type_3 {
+                width:35px;
+                background: url(/image/sprit.png) -98px 0;
+            }
+            .type_4 {
+                width:35px;
+                background: url(/image/sprit.png) -137px 0;
+            }
+            .type_5 {
+                background: url(/image/sprit.png) -175px 0;
+            }
+            .type_6 {
+                background: url(/image/sprit.png) -220px 0;
+            }
+            .type_7 {
+                width:35px;
+                background: url(/image/sprit.png) -265px 0;
+            }
+            .type_8 {
+                width:35px;
+                background: url(/image/sprit.png) -303px 0;
+            }
+            .type_active_1{
+                background: url(/image/sprit.png) 0 -38px;
+            }
+            .type_active_2{
+                background: url(/image/sprit.png) -45px -38px;
+            }
+            .type_active_3{
+                background: url(/image/sprit.png) -98px -38px;
+            }
+            .type_active_4{
+                background: url(/image/sprit.png) -137px -38px;
+            }
+            .type_active_5{
+                background: url(/image/sprit.png) -175px -38px;
+            }
+            .type_active_6{
+                background: url(/image/sprit.png) -220px -38px;
+            }
+            .type_active_7{
+                background: url(/image/sprit.png) -265px -38px;
+            }
+            .type_active_8{
+                background: url(/image/sprit.png) -303px -38px;
+            }
+        }
     }
     .game_body {
         margin-top: 30px;
-        border: 1px solid #ccc;
-        height:400px;
+        background: url(/image/4_bg.png) no-repeat -50px;
+        width: 100%;
+        background-size: 120% 100%;
+        padding:50px 0;
+        .game_box {
+            /*border:1px solid red;*/
+            width:85%;
+            height:88%;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        .game_track {
+            position: relative;
+            /*border:1px solid #000;*/
+            width:24%;
+            height:100%;
+            display: inline-block;
+            overflow: hidden;
+            overflow-y: hidden;
+            .track_ul li{
+                position: absolute;
+                left:0;
+                right:0;
+                text-align:center;
+                margin:0 auto;
+                top:-150px;
+                width:70%;
+                -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
+                a{
+                    display: block;
+                    /*border:1px solid red;*/
+                    img {
+                       
+                        text-align:center;
+                        margin:0 auto;
+                    }
+                }
+
+            }
+        }
+        img {
+            max-width: 100%;
+        }
     }
-}*/
+}
+#autographPage {
+    height: 100%;
+    width:100%;
+    background-color: #00b1be;
+    /*padding:120px 0;*/
+
+    .photo_show {
+        /*border:1px solid red;*/
+
+        margin:0 auto;
+        text-align: center;
+        
+            .photo_img{
+                display: block;
+                max-width: 100%; 
+                height: 90%;
+                margin: 0 auto;
+                text-align: center;
+                clear:both;
+            }
+        
+        a.photo_btn {
+          
+            height:3.4rem;
+            img{
+                height: 3.4rem;
+            }
+        }
+     
+        
+    }
+}
 
 
-    .couten {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        overflow-y: hidden;
-    }
-    .couten li {
-        position: absolute;
-        animation: all 3s linear;
-        top:-100px;
-        -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
-    }
-    .couten li a{
-        display: block;
-    }
-    .mo {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .2);
-        z-index: 100;
-        display: none;
-    }
-    .mo .sen {
-        width: 70%;
-        height: 150px;
-        border-radius: 5px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-    }
-    .mo .sen img {
-        width: 60%;
-        height: 127px;
-        position: absolute;
-        top: 0px;
-        left: 0;
-        right: 0;
-        bottom: 212px;
-        margin: auto;
-        vertical-align: top;
-    }
-    .mo .sen h3 {
-        width: 50%;
-        height: 30px;
-        position: absolute;
-        top: -35px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        text-align: center;
-        color: red;
-        font-size: 140%;
-        font-weight: bold;
-        z-index: 999;
-    }
-    
-    .mo .sen a {
-        width: 26%;
-        height: 50px;
-        background-color: rgb(174, 222, 244);
-        box-shadow: rgba(174, 222, 244, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        color: #fff;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 50px;
-        text-decoration: none;
-    }
+    /*动画效果*/
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+

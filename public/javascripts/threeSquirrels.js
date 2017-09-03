@@ -1,3 +1,5 @@
+
+
     var $loading = $('#loading')
     var $progress = $('#progress')
     var prg = 0 //进度初始值
@@ -54,62 +56,213 @@
     }
 
 
+    var ts_1=0; //蔓越莓
+    var ts_2=0; //蓝莓干
+    var ts_3=0;//南瓜子
+    var ts_4=0;//脱衣核桃仁
+    var ts_5=0;//山核桃
+    var ts_6=0;//腰果
+    var ts_7=0;//巴旦木
+    var ts_8=0;//榛子
+    var ts_13=0;//炸弹
 
+    $(function(){
+        FastClick.attach(document.body); 
+        var pageHeight = $(window).height() ;
+        $('.game_body').height(pageHeight - 240);
+        $('.phtot_show').height($('#autographPage').height() - 240)
+        $('.img_container').height($('#autographPage').height() - 240 - 55)
+        add();
+        backWard();
+        // alert('show?')
 
-//游戏game
-$(document).ready(function(){
-   
-    var win = (parseInt($(".conten").css("width"))) - 60;
-    $(".mo").css("height", $(document).height());//屏幕设备的高度 
-    $(".couten").css("height", $(document).height());//屏幕设备的高度 
-    $(".sen a").click(function(){
-      $(".mo").css("display", "none")
-    });
- 
-  var add = function() {
+    })
 
-        var hb = parseInt(Math.random() * (3 - 1) + 1); //获取 1<= x < 3 的数字 
-        var Wh = parseInt(Math.random() * (70 - 30) + 20);//获取 20<= x <60 的数字 
-        var Left = parseInt(Math.random() * (win - 0) + 0);//获取 0<= x <315 的数字 
-        var rot = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg"; // 获取 -45度 <= x < 45度的数字 
-        // console.log(rot)
-        num++;
-       // alert(num)
-        $(".couten").append("<li class='li" + num + "' ><a href='javascript:;'><img src='images/bottombg_" + hb + ".png'></a></li>");
-        
-        $(".li" + num).css({
-            "left": Left,
-        });
-        $(".li" + num + " a img").css({
-            "width": Wh,
-            "transform": "rot ate(" + rot + ")",
-            "-webkit-transform": "rotate(" + rot + ")",
-            "-ms-transform": "rotate(" + rot + ")", /* Internet Explorer */
-            "-moz-transform": "rotate(" + rot + ")", /* Firefox */
-            "-webkit-transform": "rotate(" + rot + ")",/* Safari 和 Chrome */
-            "-o-transform": "rotate(" + rot + ")" /* Opera */
-        }); 
-        $(".li" + num).animate(
-            {'top':$(window).height()+20
-        },5000,function(){
-            //删掉已经显示的红包
-            this.remove()
-        });
-        //点击红包的时候弹出模态层
-        $(".li" + num).click(function(){
-            $(".mo").css("display", "block")
-        });
-        setTimeout(add,200)
-    }   
-    var over = function(){
-        alert("over")
-        $(".couten").hide()
+    var num =0;//坚果松鼠增加
+    var numz = 10; //10s倒计时
+    var imgNumb = 0;
+    var len=0; //已选中的坚果数
+    var ctime = null;//计时器
+    var ts,wh,ts,top;
+    function random(){
+        Wh = parseInt(Math.random() * (70 - 30) + 20);//获取 20<= x <60 的数字
+        ts = parseInt(Math.random() * 13 + 1);//获取 1<= x <=13 的数字
+        top = (parseInt(Math.random() * (-160 - (-60)) - 50));
     }
 
 
-        //增加红包
-        var num = 0;
-        // setTimeout(add,3000);
-        add();
+    function add() {
+        num ++; 
+        if(num==15){
+            num=1;
+        }
+        for(var i=0;i<5;i++){
+            random(); 
+            $('.track_ul_'+i).append("<li class='li_" + num + "' ><a onclick='itemsFunc(this)' href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
+        }
+        $(".li_" + num).animate(
+            {
+                'top':$(window).height() + 20
+            },8000,function(){
+                //删掉已经显示的红包
+            this.remove()
+        });
 
-})
+         $(".li_" + num).click(function(){
+
+         });
+
+        // var timerArr = [450,350,400,480];
+        // var val = timerArr[Math.floor(Math.random()*timerArr.length)]
+        setTimeout(add,500);
+    }
+
+    //8种坚果下落已点击事件
+    function itemsFunc(e){
+        var targetClass = $(e).children()[0].className
+        var targetClassArr = targetClass.split('_');
+        var targetNumb = targetClassArr[1]
+        switch(targetNumb){
+                case '1':  
+                        if(ts_1==0){
+                            $('.type_1').addClass('type_active_1');
+                             ts_1 =1;
+                             len ++;
+
+                        }
+                       
+                        break;
+                case '2':  
+                       // 
+                       if(ts_2 ==0){
+                            $('.type_2').addClass("type_active_2");
+                             ts_2 =1;
+                             len ++;
+                       }
+                      
+                       break;
+                case '3':  
+                         if(ts_3 ==0){
+                            $('.type_3').addClass("type_active_3");
+                            ts_3 =1;
+                            len ++;
+                         }
+                         
+                        break;
+                case '4':  
+                        if(ts_4==0){
+                            $('.type_4').addClass("type_active_4");
+                             ts_4 =1;
+                             len ++;
+                        }
+                       
+                        break;
+                case '5':  
+                       if(ts_5==0){
+                            $('.type_5').addClass("type_active_5");
+                            ts_5 =1;
+                            len ++;
+                        }
+                        
+                        break;
+                case '6':  
+                        if(ts_6==0){
+                            $('.type_6').addClass("type_active_6");
+                            ts_6 =1;
+                            len ++;
+                        }
+                        
+                        break;
+                case '7':  
+                        if(ts_7==0){
+                            $('.type_7').addClass("type_active_7");
+                            ts_7 =1;
+                            len ++;
+                        }
+                        
+                        break;
+                case '8':  
+                       if(ts_8==0){
+                            $('.type_8').addClass("type_active_8");
+                            ts_8 =1;
+                            len ++;
+                        }
+                        break;
+                case '13':
+                        $(e)[0].innerHTML = " <img src=\"image/4_04.png\" class=\"ts_\" + targetNumb>";
+                        // console.log($(e))
+                        // console.log($(e)[0].innerHTML)
+                        // console.log($(e).context)
+                
+            }
+            
+
+    }   
+
+    //倒数计时
+    function backWard() {
+        numz--;
+        if(numz>=0){
+            $(".game_time").html(numz+"s");
+            if(len==8){
+                if(ctime != null){
+                     clearTimeout(ctime);
+                     ctime = null;
+                }
+                var newNumz = numz;
+                clearTimeout(ctime);
+                $('.game_time').html(newNumz+"s");
+                $('.game_mask').show();
+                $('.game_result_success').show();
+                return false;
+            }
+        }
+        if(numz==0){
+            clearTimeout(ctime);
+            $('.game_box').hide();
+            if(len<8){
+                $('.game_mask').show();
+                $('.game_result_unsuccess').show();
+                if($('.game_result_unsuccess').css('display')=="block"){
+                    playAgain();
+                }
+            }
+            if(len==8){
+                clearTimeout(ctime);
+                $('.game_mask').show();
+                $('.game_result_success').show();
+            }
+        }
+        ctime = setTimeout(backWard,1000);
+    }
+      
+    function playAgain(){
+        $('.gameAgain').bind('click',function(){
+          window.location.reload(true)
+        })
+        $('.GetPhoto').bind('click',function(){
+            $('#gamePage').hide();
+            $('#autographPage').show();
+            var imgArr = [1,2,3];
+            var val = imgArr[Math.floor(Math.random()*imgArr.length)]
+            console.log(val)
+            // var photoValue = 'photo_'+ val +'.png'
+            // console.log(photoValue)
+            $('.img_container').append("<img src=\"image/photo_"+ val +".png\" class=\"animated fadeInDown photo_img\"\">")
+            $('#getMore').bind('click',function(){
+            var imgArr = [1,2,3];
+            var val = imgArr[Math.floor(Math.random()*imgArr.length)]
+            console.log(val)
+            $('.photo_img').attr({
+                'src':'image/photo_'+val+'.png',
+                'class':'photo_img'
+            })
+            $('#toBuy').bind("click",function(){
+                alert("点击购买元气")
+            })
+        })   
+            
+        })
+    }
+       
+    

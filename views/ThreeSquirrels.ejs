@@ -13,9 +13,9 @@
 
 	<div class="body-wrap">
 		<!-- 加载页 -->
-	    <div id="loadingPage" class="page loading_page">
+	    <div id="loadingPage" class="page loading_page" style="display:none;">
 	    	<div class="loading_wrap">
-	    		<img src="/images/loading.png" alt="" class="loading_img">
+	    		<img src="/image/loading.png" alt="" class="loading_img">
 	    		<div class="loading" id="loading">
 			      <div class="progress" id="progress"></div>
 			      <p>Loading...</p>
@@ -29,18 +29,91 @@
 		
 	    <!-- 游戏规则页 -->
 		<div id="gameRulesPage" class="page game_rules_page"></div>
+
+
+
 		<!-- 游戏页 -->
-		<div id="gamePage" class="page game_page"></div>
-		<!-- 结果页 -->
-		<div id="resultPage" class="page result_page"></div>
+		<div id="gamePage" class="page game_page">
+			<div class="game_mask hidden"></div>
+			<div class="game_result_show game_result_unsuccess hidden ">
+				<div class="game_tooltip_box animated fadeInDown">
+					<img src="image/result_0.png" alt="" class="game_unsucess  ">
+					<a href="javascript:;" class="gameAgain"><img src="image/again.png" alt="" class="game_again_btn"></a>
+					<a href="javascript:;" class="GetPhoto"><img src="image/get_photo.png" alt="" class="get_photo_btn"></a>
+				</div>
+				
+				<!-- <img src="image/result_1.png" alt="" class="game_unsucess animated fadeInDown hidden"> -->
+			</div>
+			<div class="game_result_show game_result_success hidden">
+				<div class="game_tooltip_box center animated fadeInDown">
+					<img src="image/result_1.png" alt="" class="game_unsucess ">
+					<a href="javascript:;" class="GetPhoto"><img src="image/get_photo.png" alt="" class="get_photo_btn"></a>
+				</div>
+				<!-- <img src="image/result_0.png" alt="" class="game_unsucess animated fadeInDown "> -->
+				
+			</div>
+			<div class="game_container">
+				<div class="game_header">
+					<div class="game_time ">
+						<!-- <span></span> -->
+					</div>
+					<div class="game_type">
+						<div class="type type_1"></div>
+						<div class="type type_2"></div>
+						<div class="type type_3"></div>
+						<div class="type type_4"></div>
+						<div class="type type_5"></div>
+						<div class="type type_6"></div>
+						<div class="type type_7"></div>
+						<div class="type type_8"></div>
+					</div>
+				</div>
+				<div class="game_body">
+					<div class="game_box">
+						<div class="game_track track_1">
+							<ul class="track_ul track_ul_1">
+								<!-- <li><img src="" alt=""></li> -->
+							</ul>
+						</div>
+						<div class="game_track track_2">
+							<ul class="track_ul track_ul_2"></ul>
+						</div>
+						<div class="game_track track_3">
+							<ul class="track_ul track_ul_3"></ul>
+						</div>
+						<div class="game_track track_4">
+							<ul class="track_ul track_ul_4"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <!-- 结果页 -->
+		<!-- <div id="resultPage" class="page result_page"></div> --> 
 		<!-- 签名图片页 -->
-		<div id="autographPage" class="page autograph_page"></div>
+		<div id="autographPage" class="page autograph_page">
+			<div class="dis_top"></div>
+			<div class="photo_show"> 
+				<!-- 随机显示TFbody签名照片 -->
+				<div class="img_container"></div>
+				<!-- <img src="/image/photo_1.png" alt="" class="photo_img animated fadeInDown" > -->
+				<a href="javascript:;" class=" photo_btn" id="getMore">
+					<img src="/image/getmore.png" alt="" >
+				</a>
+				<a href="javascript:;" class="photo_btn" id="toBuy">
+					<img src="/image/tobuy.png" alt="">
+				</a>
+				
+			</div>
+			<div class="dis_bottom"></div>
+		</div>
 	</div>
 	
 
 
 
     <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
     <script type="text/javascript" src="/javascripts/threeSquirrels.js"></script>
   </body>
 </html>
