@@ -87,6 +87,23 @@
         $('.gameAgain').bind('click',function(){//游戏再来一次
           window.location.reload(true)
         })
+        //开启元气之旅
+        $('#openGame').bind('click',function(){
+            $('.game_mask').show();
+            $('.game_rule_show').show();
+        })
+        //点击马上开始
+        $('#goToGame').bind('click',function(){
+            $('.game_rule_show').hide();
+            $('.game_box_3').show();
+        })
+        $('.readygo').bind('click',function(){
+            $('.game_mask').hide();
+            $('#welcomePage').hide();
+            $('#gamePage').show();
+            add();
+            backward();
+        })
         $('.GetPhoto').bind('click',function(){ //获得TFbodys照片
             $('#gamePage').hide();
             $('#autographPage').show();

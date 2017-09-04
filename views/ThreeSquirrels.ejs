@@ -13,8 +13,26 @@
 		
 
 		<!-- 欢迎页 -->
-		<div id="welcomePage" class="page welcome_page hidden">
-            <img src="/image/c.gif" alt="" style="width:100%;height:100%">      
+		<div id="welcomePage" class="page welcome_page">
+			<div class="game_mask hidden"></div>
+			<div class="game_rule_show hidden">
+				<div class="game_rule_box animated fadeInDown">
+					<div class="game_box_2">
+						<img src="image/gamerule.png" alt="" class="game_rule  ">
+						
+						<a id="goToGame" href="javascript:;" ><img src="image/go.png" alt="" class="go"></a>
+					</div>
+
+				</div>
+			</div>
+			<div class="game_box_3 hidden">
+						<img src="image/readygo.gif" alt="" class="readygo">
+					</div>
+           <img src="image/tfbodys.png" class="animated fadeIn tfbodys" alt="">
+           <img src="image/more.png" class="animated fadeInDown more" alt="">
+           <img src="image/welcome.gif" class="animated fadeInDown welcome" alt="">
+           <!-- <div class="welcome_gif_wrap"></div> -->
+           <a href="#" id="openGame"><img src="image/open.png" alt="" class="open animated fadeIn" ></a>
         </div>
 
 
@@ -44,7 +62,7 @@
 
 
 		<!-- 游戏页 -->
-		<div id="gamePage" class="page game_page">
+		<div id="gamePage" class="page game_page hidden">
 			<div class="game_mask hidden"></div>
 			<div class="game_result_show game_result_unsuccess hidden ">
 				<div class="game_tooltip_box animated fadeInDown">
