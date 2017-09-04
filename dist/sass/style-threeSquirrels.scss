@@ -352,13 +352,25 @@ body {
             display: inline-block;
             overflow: hidden;
             overflow-y: hidden;
+            /*.track_ul_1 li{
+                 top:-100px;
+            }
+            .track_ul_2 li{
+                 top:-120px;
+            }
+            .track_ul_3 li{
+                 top:-80px;
+            }
+            .track_ul_4 li{
+                 top:-130px;
+            }*/
             .track_ul li{
                 position: absolute;
                 left:0;
                 right:0;
                 text-align:center;
                 margin:0 auto;
-                top:-150px;
+                /*top:-100px;*/
                 width:70%;
                 -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
                 a{

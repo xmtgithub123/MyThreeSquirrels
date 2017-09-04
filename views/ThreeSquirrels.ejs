@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script>
-        window.loadingStartTime = new Date()
-      </script>
+     
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style-threeSquirrels.min.css' />
     <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -12,21 +10,34 @@
   <body>
 
 	<div class="body-wrap">
-		<!-- 加载页 -->
-	    <div id="loadingPage" class="page loading_page" style="display:none;">
-	    	<div class="loading_wrap">
-	    		<img src="/image/loading.png" alt="" class="loading_img">
-	    		<div class="loading" id="loading">
-			      <div class="progress" id="progress"></div>
-			      <p>Loading...</p>
-			   	</div>
-	    	</div>
-	    	
-	    </div>
+		
 
 		<!-- 欢迎页 -->
-		<div id="welcomePage" class="page welcome_page"></div>
-		
+		<div id="welcomePage" class="page welcome_page hidden">
+            <img src="/image/c.gif" alt="" style="width:100%;height:100%">      
+        </div>
+
+
+
+		<script> //记录开始时间
+            window.loadingStartTime = new Date()
+        </script>
+
+
+        <!-- 加载页 -->
+        <div id="loadingPage" class="page loading_page" style="display:none">
+            <div class="loading_wrap">
+                <img src="/image/loading.png" alt="" class="loading_img">
+                <div class="loading" id="loading">
+                  <div class="progress" id="progress"></div>
+                  <p>Loading...</p>
+                </div>
+            </div>
+            
+        </div>
+
+
+        
 	    <!-- 游戏规则页 -->
 		<div id="gameRulesPage" class="page game_rules_page"></div>
 
@@ -48,7 +59,7 @@
 				<div class="game_tooltip_box center animated fadeInDown">
 				<div class="game_data">
 					<img src="image/result_10.png" alt="" class="game_unsucess ">
-					<span class="use_time">9.2s</span>
+					<span class="use_time"></span>
 					<span class="use_percent">xx%</span>
 					<a href="javascript:;"><img src="image/youhuijuan.png" alt="" class="youhuijiuan"></a>
 				</div>
@@ -56,8 +67,8 @@
 					<a href="javascript:;" class="GetPhoto"><img src="image/get_photo.png" alt="" class="get_photo_btn"></a>
 				</div>
 				<!-- <img src="image/result_0.png" alt="" class="game_unsucess animated fadeInDown "> -->
-				
 			</div>
+
 			<div class="game_container">
 				<div class="game_header">
 					<div class="game_time ">
@@ -69,9 +80,6 @@
 							<span class="time_s"></span>
 							<span class="time_s_unit"></span>
 						</p>
-							
-						
-						
 					</div>
 					<div class="game_type">
 						<div class="type type_1"></div>
@@ -104,10 +112,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- <!-- 结果页 -->
+		
 		<!-- <div id="resultPage" class="page result_page"></div> --> 
 		<!-- 签名图片页 -->
-		<div id="autographPage" class="page autograph_page">
+		<div id="autographPage" class="page autograph_page hidden">
 			<div class="dis_top"></div>
 			<div class="photo_show"> 
 				<!-- 随机显示TFbody签名照片 -->
@@ -129,7 +137,7 @@
 
 
     <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+    <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script> 
     <script type="text/javascript" src="/javascripts/threeSquirrels.js"></script>
   </body>
 </html>
