@@ -52,15 +52,39 @@ body {
 }
 
 .game_mask{
-        position: fixed;
-        top:0;
-        right:0;
-        bottom:0;
-        left:0;
-        background: black;
-        opacity: 0.5;
-        z-index:99;
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background: black;
+    opacity: 0.5;
+    z-index:99;
     }
+#readyGoPage {
+   position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 99;
+    top: 0;
+    text-align: center;
+    margin:0 auto;
+    img.readygo{
+        position: absolute;
+        top:0;
+        left:0;
+        z-index:100;
+        width:40%;
+        right:0;
+        margin:0 auto;
+        top:50%;
+        margin-top:-20%;
+    }
+}
 #welcomePage {
     position: relative;
     height: 100%;
@@ -108,7 +132,7 @@ body {
             .game_rule {
                 max-width: 100%;
                 width:85%;
-                margin-top: 2rem;
+                margin-top: -60px
             }
             .go{
                 position: absolute;
@@ -131,11 +155,11 @@ body {
     }*/
     .tfbodys{
         max-width: 100%;
-        width:85%;
+        height: 55%;
         position: absolute;
         left:0;
         right:0;
-        top:1rem;
+        top:60px;
         margin:0 auto;
 
     }
@@ -146,7 +170,7 @@ body {
         position: absolute;
         left: 0;
         right: 0;
-        top: 45%;
+        top: 50%;
         bottom: 0;
         margin: 0 auto;
     }
@@ -166,8 +190,8 @@ body {
     .welcome {
         position: absolute;
         max-width: 100%;
-        width: 70%;
-        top:50%;
+        width: 55%;
+        top:55%;
         left:0;
         right:0;
         margin:0 auto;
@@ -177,7 +201,7 @@ body {
         max-width: 100%;
         width:10rem;
         position: absolute;
-        top:79%;
+        top:78%;
         left:0;
         right:0;
         margin:0 auto;
@@ -199,6 +223,7 @@ body {
     	}
 	}
 }
+
 #loadingPage {
 	/*border:1px solid red;*/
 	/*width: 70%;*/

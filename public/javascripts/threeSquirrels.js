@@ -81,18 +81,28 @@
         var pageHeight = $(window).height() ;
         $('.game_body').height(pageHeight - 240 -120);
         $('.photo_show').height($('#autographPage').height() - 240)
-        $('.img_container').height($('#autographPage').height() - 240 - 55)
+        $('.img_container').height($('#autographPage').height() - 240 - 55);
+        $('.dis_body').height($('#welcomePage').height() -240)
 
          // $('#welcomePage,#gamePage,#autographPage').css('display','none')
 
         var imgArr = [1,2,3];
         var val = imgArr[Math.floor(Math.random()*imgArr.length)]
        
-
         $('.gameAgain').bind('click',function(){//游戏失败再来一次
-            alert('one')
-        })
+                    
+            //console.log($('.game_result_unsuccess').is(":visible"))
+            var isShow = $('.game_result_unsuccess').is(":visible")
+            if(isShow){
+                $('.game_mask').hide()
+                $('.game_result_unsuccess').hide();
+                $('#gamePage').hide();
+                // $('#welcomePage').show();
+                $('#readyGoPage').show();
+            }
 
+        })
+        
         //开启元气之旅
         $('#openGame').bind('click',function(){
             $('.game_mask').show();
@@ -101,13 +111,19 @@
         //点击马上开始
         $('#goToGame').bind('click',function(){
             $('.game_rule_show').hide();
-            $('.game_box_3').show();
+            $('.readygo_page').show();
 
         })
         $('.readygo').bind('click',function(){ //点击开始进入游戏
+            $('#readyGoPage').hide();
+            $('.game_result_unsuccess').hide();
+            $('.game_mask').hide();
             $('.game_mask').hide();
             $('#welcomePage').hide();
             $('#gamePage').show();
+            numz=10.0;
+            num=0;
+            len =0;
                 setTrackFunc();
                 backward();
 
@@ -145,13 +161,13 @@
     //开始游戏时调用
     function setTrackFunc(){  
         for(var i =1;i<5;i++){
-            console.log(23333)
             addLi(i)
         }
     }
     // 增加下滑元素
     function addLi(n){
-        num++;
+        //console.log(num)
+      
         randoms();   
         if(numz>0){
             var topArr = [-120,-140,-130,-150]; //
@@ -161,7 +177,23 @@
             var stopMinutesValue = stopMinutesArr[Math.floor(Math.random()*stopMinutesArr.length)];//设置每列断断续续滑落 
             // style=\"top:"+topVaule+"px\"
             $('.track_ul_'+n).append("<li class='li_" + num + "' onclick='itemsFunc(this)' style=\"top:"+topVaule+"px\"><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
+        
+            //没到结束时，如果点击了炸弹则游戏over
+            $('.ts_13').bind('click',function(){
+                $(this).attr('src','<img src="image/4_04.png">')
+                $('.game_mask').show();
+                // $('.game_body').delay(500).hide(0)
+                $('.game_result_unsuccess').show();
+                $(".track_ul_"+n).children().remove();
+                
+                if(ctime != null){
+                     clearTimeout(ctime);
+                     ctime = null;
+                }
+                return false;
+            })
         }
+       
         $(".track_ul_"+n).children().animate(
             {
                 'top':$(window).height() + 20
@@ -169,7 +201,9 @@
             //删掉已经显示的元素
             this.remove()
         });
-
+        if(numz==0){
+            $(".track_ul_"+n).children().remove()
+        }
         if(num%2==0){
             setTimeout(function(){
                 addLi(n)
@@ -281,17 +315,7 @@
            $('.time_s').attr('class','time_s').addClass('time_'+numzSplit[2]);
             //$(".game_time").html(numz+"s");
 
-            //没到结束时，如果点击了炸弹则游戏over
-            $('.ts_13').bind('click',function(){
-                $(this).attr('src','<img src="image/4_04.png">')
-                $('.game_mask').show();
-                // $('.game_body').delay(500).hide(0)
-                $('.game_result_unsuccess').show();
-                if(ctime != null){
-                     clearTimeout(ctime);
-                     ctime = null;
-                }
-            })
+            
             //未结束时，如果上面图标已点亮了8个，则游戏成功
             if(len==8){
                 if(ctime != null){
