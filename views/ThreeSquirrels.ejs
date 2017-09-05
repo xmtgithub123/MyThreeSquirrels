@@ -2,16 +2,31 @@
 <html>
   <head>
      
-    <title><%= title %></title>
+    <title>三只松鼠</title>
+   <script>
+    window.loadingStartTime = new Date()
+  </script>
     <link rel='stylesheet' href='/stylesheets/style-threeSquirrels.min.css' />
+    <meta content="telephone=no" name="format-detection" />
     <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     
   </head>
   <body>
 
 	<div class="body-wrap">
-		
-
+        <!-- 加载页 -->
+        <div id="loadingPage" class="page loading_page" >
+            <div class="loading_wrap">
+                <img src="/image/loading.png" alt="" class="loading_img">
+                <div class="loading" id="loading">
+               
+                  <div class="progress" id="progress"></div>
+                   
+                  <p>Loading...</p>
+                </div>
+            </div>
+            
+        </div>
 		<!-- 欢迎页 -->
 		<div id="welcomePage" class="page welcome_page">
 			<div class="game_mask hidden"></div>
@@ -19,15 +34,13 @@
 				<div class="game_rule_box animated fadeInDown">
 					<div class="game_box_2">
 						<img src="image/gamerule.png" alt="" class="game_rule  ">
-						
 						<a id="goToGame" href="javascript:;" ><img src="image/go.png" alt="" class="go"></a>
 					</div>
-
 				</div>
 			</div>
 			<div class="game_box_3 hidden">
-						<img src="image/readygo.gif" alt="" class="readygo">
-					</div>
+				<img src="image/readygo.gif" alt="" class="readygo">
+			</div>
            <img src="image/tfbodys.png" class="animated fadeIn tfbodys" alt="">
            <img src="image/more.png" class="animated fadeInDown more" alt="">
            <img src="image/welcome.gif" class="animated fadeInDown welcome" alt="">
@@ -37,27 +50,12 @@
 
 
 
-		<script> //记录开始时间
-            window.loadingStartTime = new Date()
-        </script>
-
-
-        <!-- 加载页 -->
-        <div id="loadingPage" class="page loading_page" style="display:none">
-            <div class="loading_wrap">
-                <img src="/image/loading.png" alt="" class="loading_img">
-                <div class="loading" id="loading">
-                  <div class="progress" id="progress"></div>
-                  <p>Loading...</p>
-                </div>
-            </div>
-            
-        </div>
+		
 
 
         
 	    <!-- 游戏规则页 -->
-		<div id="gameRulesPage" class="page game_rules_page"></div>
+		<!-- <div id="gameRulesPage" class="page game_rules_page"></div> -->
 
 
 

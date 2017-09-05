@@ -201,7 +201,7 @@ body {
 }
 #loadingPage {
 	/*border:1px solid red;*/
-	width: 70%;
+	/*width: 70%;*/
 	margin:0 auto;
     .loading_wrap {
         text-align: center;
@@ -328,18 +328,17 @@ body {
             margin:0 auto;
             text-align:center;
             .game_again_btn {
-                height: 3.4rem;
                 position: absolute;
-                left: 20px;
-                right: 0;
-                bottom: 30px;
+                left: 12%;
+                height: 10%;
+                bottom:50px;
 
             }
             .get_photo_btn{
-                height: 3.4rem;
                 position: absolute;
-                right: 20px;
-                bottom: 30px;
+                right: 12%;
+                bottom: 50px;
+                height: 10%;
             }
         }
          
@@ -600,4 +599,21 @@ body {
 
 .fadeInDown {
   animation-name: fadeInDown;
+}
+
+
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  animation-name: fadeOutUp;
 }
