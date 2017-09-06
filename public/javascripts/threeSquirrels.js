@@ -1,61 +1,50 @@
+var $loading = $('#loading')
+var $progress = $('#progress')
+var prg = 0
 
-    var $loading = $('#loading')
-    var $progress = $('#progress')
-    var prg = 0 //进度初始值
+var timer = 0
 
-    var timer = 0
-    var now = new Date()  // 记录当前时间
-    var timeout = 5000  // 超时时间
+progress([80, 90], [1, 3], 100)  // 使用数组来表示随机数的区间
 
-    progress([80, 90], [1, 3], 100)
+window.onload = () => {
+  progress(100, [1, 5], 10, () => {
+    window.setTimeout(() => {  // 延迟了一秒再隐藏loading
+         $loading.hide()
+        $('#loadingPage').hide()
+        $('#welcomePage').show();
+     
+    }, 1000)
+  })
+}
 
-    window.onload  =function(){
-        complete()
-    }
-    if (now - loadingStartTime > timeout) {  // 超时
-        complete()
+function progress (dist, speed, delay, callback) {
+  var _dist = random(dist)
+  var _delay = random(delay)
+  var _speed = random(speed)
+  window.clearTimeout(timer)
+  timer = window.setTimeout(() => {
+    if (prg + _speed >= _dist) {
+      window.clearTimeout(timer)
+      prg = _dist
+      callback && callback()
     } else {
-        window.setTimeout(function() {
-            complete()
-        },timeout - (now - loadingStartTime))
+      prg += _speed
+      progress (_dist, speed, delay, callback)
     }
+    $progress.css('width',parseInt(prg) + '%')
+  }, _delay)
+}
 
-    function complete () {  // 封装完成进度功能
-        progress(100, [1, 5], 10,function(){
-            window.setTimeout(function(){
-                $('#loadingPage').hide()
-            },1000)
-        })
-    }
-    function progress (dist, speed, delay, callback) {
-        var _dist = random(dist)
-        var _delay = random(delay)
-        var _speed = random(speed)
-        window.clearTimeout(timer)
-        timer = window.setTimeout(function(){
-            if (prg + _speed >= _dist) {
-                window.clearTimeout(timer)
-                prg = _dist
-                callback && callback()
-            } else {
-                prg += _speed
-                progress (_dist, speed, delay, callback)
-            }
-            $progress.css('width',parseInt(prg) + '%')
-            
-        },_delay)
-        
-    }
+function random (n) {
+  if (typeof n === 'object') {
+    var times = n[1] - n[0]
+    var offset = n[0]
+    return Math.random() * times + offset
+  } else {
+    return n
+  }
+}
 
-    function random (n) {
-        if (typeof n === 'object') {
-            var times = n[1] - n[0]
-            var offset = n[0]
-            return Math.random() * times + offset
-        } else {
-            return n
-        }
-    }
 
     var ts_1=0; //蔓越莓
     var ts_2=0; //蓝莓干
@@ -75,11 +64,21 @@
     var ts=0;wh=0,ts=0,top=0;
     var flag = 0;
     var pn=0;
+    var images = new Array();
+
     $(function(){
+
+        // console.log($('#loadingPage').is(':hidden'))
+        // var confirmLoadingIsShow = $('#loadingPage');
+
+        // if(confirmLoadingIsShow.is(':hidden')){
+        //     $('#welcomePage').delay(1000).show();
+        // }
+        
         FastClick.attach(document.body); 
         var pageHeight = $(window).height() ;
         $('.game_body').height(pageHeight - 240 -120);
-        $('.photo_show').height($('#autographPage').height() - 240) //如果头部低部需要留120px 则高度为-240
+        $('.photo_show').height($('#autographPage').height() - 120) //如果头部低部需要留120px 则高度为-240
         $('.img_container').height($('#autographPage').height() - 240 - 55);
         $('.dis_body').height($('#welcomePage').height() -240)
 
@@ -114,8 +113,7 @@
             $('.game_mask').hide();
             $('#welcomePage').hide();
             $('#gamePage').show();
-            setTrackFunc();
-            backward();
+           initGame();
             
         })
         $('.GetPhoto').bind('click',function(){ //获得TFbodys照片
@@ -145,6 +143,53 @@
         $('.youhuijiuan').bind("click",function(){ //点击优惠卷事件
             alert('领取成功！')
         })
+
+
+
+        var preload = new Array(
+            "image/4_04.png",
+            "image/4_bg.png",
+            "image/again.png",
+            "image/gamerule.png",
+            "image/get_photo.png",
+            "image/getmore.png",
+            "image/go.png",
+            "image/loading.png",
+            "image/more.png",
+            "image/open.png",
+            "image/photo_1.png",
+            "image/photo_2.png",
+            "image/photo_3.png",
+            "image/readygo.gif",
+            "image/result_0.png",
+            "image/result_1.png",
+            "image/result_10.png",
+            "image/right.png",
+            "image/sprit.png",
+            "image/tfbodys.png",
+            "image/tobuy.png",
+            "image/ts_1.png",
+            "image/ts_2.png",
+            "image/ts_3.png",
+            "image/ts_4.png",
+            "image/ts_5.png",
+            "image/ts_6.png",
+            "image/ts_7.png",
+            "image/ts_8.png",
+            "image/ts_9.png",
+            "image/ts_10.png",
+            "image/ts_11.png",
+            "image/ts_12.png",
+            "image/ts_13.png",
+            "image/welcome.gif",
+            "image/youhuijuan.png",
+        )
+        for (i = 0; i < preload.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload[i];
+        }
+
+
         
     })
     //初始化游戏
@@ -162,7 +207,7 @@
         }
 
         setTrackFunc();
-        backward();
+       backward();
 
     }
     

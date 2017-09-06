@@ -183,7 +183,7 @@ body {
         z-index:10;
         height:180px;
         width:70%;
-        background:url(/image/welcome.gif);
+        background:url(image/welcome.gif);
         background-size: 100% 100%;
         /*border:1px solid red;*/
     }
@@ -234,7 +234,7 @@ body {
             width:50%;
         }
         .loading {
-            width: 100%;
+            /*width: 100%;*/
             height:0.6rem;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -412,7 +412,8 @@ body {
                 right: 0;
                 margin:0 auto;
                 /*max-width: 100%;*/
-                height:7rem;
+                /*height:7rem;*/
+                width:60%;
             }
         }
     }
@@ -427,28 +428,32 @@ body {
                 margin:0 auto;
             }
             .type_1 {
+                width:37px;
+                height:37px;
                 background: url(/image/sprit.png) 0 0;
             }
             .type_2 {
-                 width:50px;
+                 width:47px;
                 background: url(/image/sprit.png) -45px 0;
             }
             .type_3 {
-                width:35px;
+                width:29px;
                 background: url(/image/sprit.png) -98px 0;
             }
             .type_4 {
-                width:35px;
+                width:31px;
                 background: url(/image/sprit.png) -137px 0;
             }
             .type_5 {
-                background: url(/image/sprit.png) -175px 0;
+                width: 38px;
+                background: url(/image/sprit.png) -178px 0;
             }
             .type_6 {
-                background: url(/image/sprit.png) -220px 0;
+                width: 35px;
+                background: url(/image/sprit.png) -225px 0;
             }
             .type_7 {
-                width:35px;
+                width:30px;
                 background: url(/image/sprit.png) -265px 0;
             }
             .type_8 {
@@ -468,10 +473,10 @@ body {
                 background: url(/image/sprit.png) -137px -38px !important;
             }
             .type_active_5{
-                background: url(/image/sprit.png) -175px -38px !important;
+                background: url(/image/sprit.png) -178px -38px !important;
             }
             .type_active_6{
-                background: url(/image/sprit.png) -220px -38px !important;
+                background: url(/image/sprit.png) -225px -38px !important;
             }
             .type_active_7{
                 background: url(/image/sprit.png) -265px -38px !important;
@@ -555,17 +560,19 @@ body {
             .photo_img{
                 display: block;
                 max-width: 100%; 
-                height: 90%;
+                height: 100%;
                 margin: 0 auto;
                 text-align: center;
                 clear:both;
+                margin-bottom: 30px;
             }
         
         a.photo_btn {
-          
+           
             height:3.4rem;
             img{
                 height: 3.4rem;
+                margin-top: 15px;
             }
         }
      

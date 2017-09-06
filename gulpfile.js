@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     clean = require('gulp-clean-css'),
     plumber = require('gulp-plumber'),
     sass = require('gulp-sass-china'),
+    minifycss = require('gulp-minify-css'),
     source = require('vinyl-source-stream'),
     autoprefixer = require('gulp-autoprefixer');
 var tinylr;
@@ -34,9 +35,11 @@ gulp.task('styles', function() {
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer({browsers: ['last 2 version', '> 5%']}))
+
         .pipe(rename({
             suffix: '.min'  
         }))
+        .pipe(minifycss())
         .pipe(clean({
             compatibility: 'ie8'
         }))
