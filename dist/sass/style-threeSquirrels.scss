@@ -378,13 +378,13 @@ body {
                 left:0 !important;
                 right: 0 !important;
                 margin:0 auto;
-                bottom: 3rem !important;
+                bottom: 10% !important;
         }
         .game_data {
             position: relative;
             .use_time{
                 position: absolute;
-                top: 8.5rem;
+                top: 26%;
                 left: 0;
                 bottom: 0;
                 right: 0;
@@ -395,18 +395,18 @@ body {
             }
             .use_percent{
                 position: absolute;
-                top: 12.3rem;
+                top: 40%;
                 left: 0;
                 bottom: 0;
                 right: 0;
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: bold;
-                margin-left: 4.5rem;
+                margin-left: 20%;
                 color:#fe4a00;
             }
             .youhuijiuan {
                 position: absolute;
-                top: 16.5rem;
+                top: 50%;
                 left: 0;
                 bottom: 0;
                 right: 0;
@@ -456,28 +456,28 @@ body {
                 background: url(/image/sprit.png) -303px 0;
             }
             .type_active_1{
-                background: url(/image/sprit.png) 0 -38px;
+                background: url(/image/sprit.png) 0 -38px !important;
             }
             .type_active_2{
-                background: url(/image/sprit.png) -45px -38px;
+                background: url(/image/sprit.png) -45px -38px !important;
             }
             .type_active_3{
-                background: url(/image/sprit.png) -98px -38px;
+                background: url(/image/sprit.png) -98px -38px !important;
             }
             .type_active_4{
-                background: url(/image/sprit.png) -137px -38px;
+                background: url(/image/sprit.png) -137px -38px !important;
             }
             .type_active_5{
-                background: url(/image/sprit.png) -175px -38px;
+                background: url(/image/sprit.png) -175px -38px !important;
             }
             .type_active_6{
-                background: url(/image/sprit.png) -220px -38px;
+                background: url(/image/sprit.png) -220px -38px !important;
             }
             .type_active_7{
-                background: url(/image/sprit.png) -265px -38px;
+                background: url(/image/sprit.png) -265px -38px !important;
             }
             .type_active_8{
-                background: url(/image/sprit.png) -303px -38px;
+                background: url(/image/sprit.png) -303px -38px !important;
             }
         }
     }

@@ -66,21 +66,20 @@
     var ts_7=0;//巴旦木
     var ts_8=0;//榛子
     var ts_13=0;//炸弹
-
     var num =0;//坚果松鼠增加
     var numz = 10.0; //10s倒计时
     var imgNumb = 0;
     var len=0; //已选中的坚果数
     var ctime = null;//计时器
-    var clicknumb =0;
+    var addTime = null;
     var ts=0;wh=0,ts=0,top=0;
     var flag = 0;
-
+    var pn=0;
     $(function(){
         FastClick.attach(document.body); 
         var pageHeight = $(window).height() ;
         $('.game_body').height(pageHeight - 240 -120);
-        $('.photo_show').height($('#autographPage').height() - 240)
+        $('.photo_show').height($('#autographPage').height() - 240) //如果头部低部需要留120px 则高度为-240
         $('.img_container').height($('#autographPage').height() - 240 - 55);
         $('.dis_body').height($('#welcomePage').height() -240)
 
@@ -90,16 +89,10 @@
         var val = imgArr[Math.floor(Math.random()*imgArr.length)]
        
         $('.gameAgain').bind('click',function(){//游戏失败再来一次
-                    
-            //console.log($('.game_result_unsuccess').is(":visible"))
-            var isShow = $('.game_result_unsuccess').is(":visible")
-            if(isShow){
-                $('.game_mask').hide()
-                $('.game_result_unsuccess').hide();
-                $('#gamePage').hide();
-                // $('#welcomePage').show();
-                $('#readyGoPage').show();
-            }
+            $('.game_mask').hide()
+            $('.game_result_unsuccess').hide();
+            $('.game_box').show();
+            initGame();
 
         })
         
@@ -121,12 +114,9 @@
             $('.game_mask').hide();
             $('#welcomePage').hide();
             $('#gamePage').show();
-            numz=10.0;
-            num=0;
-            len =0;
-                setTrackFunc();
-                backward();
-
+            setTrackFunc();
+            backward();
+            
         })
         $('.GetPhoto').bind('click',function(){ //获得TFbodys照片
             $('#gamePage').hide();
@@ -136,8 +126,17 @@
         $('#getMore').bind('click',function(){//随机切换TFbodys照片
             var imgNumb = [1,2,3];
             var data = imgNumb[Math.floor(Math.random()*imgNumb.length)]
+            pn++;
+            var old = pn;
+            // console.log(pn)
+            if(pn==4){
+                pn=1;
+            }
+            if(old=4){
+                old = 1;
+            }
             $('.photo_img').attr(
-                'src','image/photo_'+data+'.png'
+                'src','image/photo_'+pn+'.png'
             )           
         })  
         $('#toBuy').bind("click",function(){//点击购买元气
@@ -148,8 +147,24 @@
         })
         
     })
+    //初始化游戏
+    function initGame(){
+        num =0;//坚果松鼠增加
+        numz = 10.0; //10s倒计时
+        imgNumb = 0;
+        len=0; //已选中的坚果数
+        ctime = null;//计时器
+        addTime = null;
+        for(var i=1;i<9;i++) { //初始化里，上一次点击过的坚果清空
+                // console.log($('.type_'+i).hasClass('type_active_'+i))
+            if($('.type_'+i).hasClass('type_active_'+i))
+                $('.type_'+i).removeClass('type_active_'+i)
+        }
 
+        setTrackFunc();
+        backward();
 
+    }
     
     //随机函数
     function randoms(){
@@ -166,11 +181,11 @@
     }
     // 增加下滑元素
     function addLi(n){
-        //console.log(num)
-      
+        // console.log(num)
+        num ++; 
         randoms();   
         if(numz>0){
-            var topArr = [-120,-140,-130,-150]; //
+            var topArr = [-120,-160,-140,-180]; //
             var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
 
             var stopMinutesArr = [400,900,800,700,600,500,1000];
@@ -180,20 +195,51 @@
         
             //没到结束时，如果点击了炸弹则游戏over
             $('.ts_13').bind('click',function(){
-                $(this).attr('src','<img src="image/4_04.png">')
-                $('.game_mask').show();
-                // $('.game_body').delay(500).hide(0)
-                $('.game_result_unsuccess').show();
-                $(".track_ul_"+n).children().remove();
                 
-                if(ctime != null){
-                     clearTimeout(ctime);
-                     ctime = null;
+                $('.game_mask').show();
+                $('.game_result_unsuccess').show();
+                // $(".track_ul_"+n).children().remove();
+                if(addTime != null){
+                     clearTimeout(addTime);
+                     addTime = null;
                 }
                 return false;
             })
+            //  if(len==8){ //当在时间内len=8时，停止下滑
+            //     if(ctime != null){
+            //          clearTimeout(ctime);
+            //          ctime = null;
+            //          return false;
+            //     }
+            //     return false;
+            // }
+            //未结束时，如果上面图标已点亮了8个，则游戏成功
+            if(len==8){
+
+                var newNumz = numz;
+               // clearTimeout(ctime);
+                $('.game_mask').show();
+                $('.game_result_success').show();
+                var useTime  = parseFloat( 10.0 - numz).toFixed(1); //游戏成功用时多长时间;
+                $('.use_time').text(useTime+"s");
+                // $('.use_percent').text(xxx+'%'); //战胜全国xx%的人;
+                if(ctime != null){
+                     clearTimeout(ctime);
+                     ctime = null;
+                     return false;
+                }
+                
+            }
+
+
         }
-       
+        if(numz==0){  //当在时间为0时，停止下滑
+            if(addTime != null){
+                 clearTimeout(addTime);
+                 addTime = null;
+            }
+            return false;
+        }
         $(".track_ul_"+n).children().animate(
             {
                 'top':$(window).height() + 20
@@ -204,8 +250,8 @@
         if(numz==0){
             $(".track_ul_"+n).children().remove()
         }
-        if(num%2==0){
-            setTimeout(function(){
+        if(num%2==0){  //停几秒再掉落
+            var addTime =setTimeout(function(){
                 addLi(n)
             },stopMinutesValue);
                 
@@ -215,6 +261,9 @@
                 addLi(n)
             },450);
         }
+        // var addTime = setTimeout(function(){
+        //         addLi(n)
+        //     },450); //匀速掉落
     }
 
     //8种坚果下落已点击事件
@@ -228,100 +277,109 @@
         if(targetNumb>0 && targetNumb<9){ //点击了坚果 显示对勾
             $itemParent.append("<img src='image/right.png' class='right'>");
         }
-        // console.log(targetNumb)
+        //console.log(targetNumb)
         //点击了相应的坚果 对应坚果点亮效果
         switch(targetNumb){
             case '1':  
-                    if(ts_1==0){
+                    var isHasClass = $(".type_1").hasClass("type_active_1")
+                    if(!isHasClass)  {
                         $('.type_1').addClass('type_active_1');
-                         ts_1 =1;
-                         len ++;
-
+                          len ++;
                     }
-                   
                     break;
             case '2':  
-                   // 
-                   if(ts_2 ==0){
-                        $('.type_2').addClass("type_active_2");
-                         ts_2 =1;
-                         len ++;
-                   }
-                  
+                    
+                    var isHasClass = $(".type_2").hasClass("type_active_2") 
+                    if(!isHasClass)  {
+                        $('.type_2').addClass('type_active_2');
+                          len ++;
+                    }
                    break;
             case '3':  
-                     if(ts_3 ==0){
-                        $('.type_3').addClass("type_active_3");
-                        ts_3 =1;
-                        len ++;
-                     }
+                    
+                    var isHasClass = $(".type_3").hasClass("type_active_3") 
+                    if(!isHasClass)  {
+                        $('.type_3').addClass('type_active_3');
+                          len ++;
+                    }
+                    
                      
                     break;
             case '4':  
-                    if(ts_4==0){
-                        $('.type_4').addClass("type_active_4");
-                         ts_4 =1;
-                         len ++;
+                    var isHasClass = $(".type_4").hasClass("type_active_4")
+                    if(!isHasClass)  {
+                        $('.type_4').addClass('type_active_4');
+                          len ++;
                     }
                    
                     break;
             case '5':  
-                   if(ts_5==0){
-                        $('.type_5').addClass("type_active_5");
-                        ts_5 =1;
-                        len ++;
+                    var isHasClass = $(".type_5").hasClass("type_active_5")
+                    if(!isHasClass)  {
+                        $('.type_5').addClass('type_active_5');
+                          len ++;
                     }
                     
                     break;
             case '6':  
-                    if(ts_6==0){
-                        $('.type_6').addClass("type_active_6");
-                        ts_6 =1;
-                        len ++;
+                    var isHasClass = $(".type_6").hasClass("type_active_6")  
+                    if(!isHasClass)  {
+                        $('.type_6').addClass('type_active_6');
+                          len ++;
                     }
                     
                     break;
             case '7':  
-                    if(ts_7==0){
-                        $('.type_7').addClass("type_active_7");
-                        ts_7 =1;
-                        len ++;
+                    
+                    var isHasClass = $(".type_7").hasClass("type_active_7") 
+                    if(!isHasClass)  {
+                        $('.type_7').addClass('type_active_7');
+                          len ++;
                     }
+                   
                     
                     break;
             case '8':  
-                   if(ts_8==0){
-                        $('.type_8').addClass("type_active_8");
-                        ts_8 =1;
-                        len ++;
+                    var isHasClass = $(".type_8").hasClass("type_active_8")  
+                    if(!isHasClass)  {
+                        $('.type_8').addClass('type_active_8');
+                          len ++;
                     }
+                  
                     break;
-            case '13':
-                    //如果点击了炸弹则显示爆炸效果
-                    $(e)[0].innerHTML = " <img src=\"image/4_04.png\" class=\"ts_\" + targetNumb>";
+            // case '13':
+            //         //如果点击了炸弹则显示爆炸效果
+            //         $(e)[0].innerHTML = " <img src=\"image/4_04.png\" class=\"ts_\" + targetNumb>";
+            //         break;
         }  
 
     }   
 
     //倒数计时
-    function backward(type) {
+    function backward() {
+        // console.log(numz)
         numz = parseFloat( numz - 0.1).toFixed(1);//倒计时保留一位小数
         //10s倒计时 如果没到时间的情况 
-        if(numz>=0){
+        if(numz>0){
            var numzSplit = numz.split('')
            var old_time_second = numzSplit[0];
            $('.time_m_first').hide();
            $('.time_m_second').attr('class','time_m_second').addClass('time_'+numzSplit[0]);
            $('.time_s').attr('class','time_s').addClass('time_'+numzSplit[2]);
-            //$(".game_time").html(numz+"s");
+           // $(".game_time").html(numz+"s");
 
-            
-            //未结束时，如果上面图标已点亮了8个，则游戏成功
-            if(len==8){
+           $('.ts_13').bind('click',function(){
+                $(this).attr('src','image/4_04.png')
                 if(ctime != null){
                      clearTimeout(ctime);
                      ctime = null;
+                     
                 }
+                 return false;
+            })
+            //未结束时，如果上面图标已点亮了8个，则游戏成功
+            if(len==8){
+
                 var newNumz = numz;
                // clearTimeout(ctime);
                 $('.game_mask').show();
@@ -329,12 +387,18 @@
                 var useTime  = parseFloat( 10.0 - numz).toFixed(1); //游戏成功用时多长时间;
                 $('.use_time').text(useTime+"s");
                 // $('.use_percent').text(xxx+'%'); //战胜全国xx%的人;
-                return false;
+                if(ctime != null){
+                     clearTimeout(ctime);
+                     ctime = null;
+                     return false;
+                }
+                
             }
+
         }
         //如果时间已到，如果已集齐8个则游戏成功，否则失败
         if(numz==0){
-            //clearTimeout(ctime);
+
             $('.game_box').hide();
             if(len<8){
                 $('.game_mask').show();
@@ -346,6 +410,12 @@
                 $('.game_mask').show();
                 $('.game_result_success').show();
             }
+            if(ctime != null){
+                 clearTimeout(ctime);
+                 ctime = null;
+                 return false;
+            }
+            return false;
         }
         ctime = setTimeout(backward,100);
         
@@ -355,127 +425,4 @@
  
     
     
-    // function add() {
-    //     num ++; 
-    //     // if(num==15){
-    //     //     num=1;
-    //     // }
-    //     for(var i=0;i<5;i++){
-    //         random();                 
-    //         // style=\"top:"+top+"px\">
-    //         if(numz>0){
-    //             var topArr = [-100,-120,-140,-150];
-    //             var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
-    //             // style=\"top:-150px\"
-    //             $('.track_ul_'+i).append("<li class='li_" + num + "' onclick='itemsFunc(this)'><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
-    //         }
-    //     }
-    //     $(".li_" + num).animate(
-    //         {
-    //             'top':$(window).height() + 20
-    //         },7000,function(){
-    //         //删掉已经显示的红包
-    //         this.remove()
-    //     });
-    //     // var timerArr = [460,480,500,520];
-    //     // var val = timerArr[Math.floor(Math.random()*timerArr.length)]
-    //     setTimeout(add,600);
-    // }
-
-
-     // function addLi_1(){
-    //      num ++; 
-    //      random();   
-    //       if(numz>0){
-    //          var topArr = [-120,-140,-130,-150];
-    //             var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
-    //             // style=\"top:"+topVaule+"px\"
-    //          $('.track_ul_1').append("<li class='li_" + num + "' onclick='itemsFunc(this)' ><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
-                
-    //       }
-    //      $(".track_ul_1").children().animate(
-    //         {
-    //             'top':$(window).height() + 20
-    //         },5000,function(){
-    //         //删掉已经显示的红包
-    //         this.remove()
-    //     });
-        
-    //     if(num%2==0){
-    //         console.log(num)
-    //         setTimeout(addLi_1,900);
-                
-    //     }
-    //     else {
-    //          var addTime = setTimeout(addLi_1,650);
-    //     }
-    // }
-    //   function addLi_2(){
-    //      num ++; 
-    //      random();   
-    //       if(numz>0){
-    //         var topArr = [-120,-140,-130,-150];
-    //         var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
-    //         $('.track_ul_2').append("<li class='li_" + num + "' onclick='itemsFunc(this)'><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
-                
-    //       }
-    //      $(".track_ul_2").children().animate(
-    //         {
-    //             'top':$(window).height() + 20
-    //         },5000,function(){
-    //         //删掉已经显示的红包
-    //         this.remove()
-    //     });
-    //     if(num%2==0){
-    //         console.log(num)
-    //         setTimeout(addLi_2,1500);
-                
-    //     }
-    //     else {
-    //          var addTime = setTimeout(addLi_2,600);
-    //     }
-    // }
-    // function addLi_3(){
-    //      num ++; 
-    //      random();   
-    //       if(numz>0){
-    //          var topArr = [-120,-140,-130,-150];
-    //             var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
-    //          $('.track_ul_3').append("<li class='li_" + num + "' onclick='itemsFunc(this)'><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
-    //       }
-    //      $(".track_ul_3").children().animate(
-    //         {
-    //             'top':$(window).height() + 20
-    //         },6000,function(){
-    //         //删掉已经显示的红包
-    //         this.remove()
-    //     });
-
-    //      setTimeout(addLi_3,600);
-    // }
-    // function addLi_4(){
-    //      num ++; 
-    //      random();   
-    //       if(numz>0){
-    //          var topArr = [-120,-140,-130,-150];
-    //             var topVaule = topArr[Math.floor(Math.random()*topArr.length)]
-    //          $('.track_ul_4').append("<li class='li_" + num + "' onclick='itemsFunc(this)'><a href='javascript:;'><img src='image/ts_" + ts + ".png' class='ts_" + ts + "' ></a></li>");
-                
-    //       }
-    //      $(".track_ul_4").children().animate(
-    //         {
-    //             'top':$(window).height() + 20
-    //         },6000,function(){
-    //         //删掉已经显示的红包
-    //         this.remove()
-    //     });
-
-    //      if(num%4==0){
-    //         console.log(num)
-    //         setTimeout(addLi_4,2000);
-                
-    //     }
-    //     else {
-    //          var addTime = setTimeout(addLi_4,650);
-    //     }
-    // }
+   
