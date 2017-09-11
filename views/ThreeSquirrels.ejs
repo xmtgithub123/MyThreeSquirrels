@@ -3,11 +3,10 @@
   <head>
      
     <title>三只松鼠</title>
-   <script>
-    window.loadingStartTime = new Date()
-  </script>
+ 
     <link rel='stylesheet' href='/stylesheets/style-threeSquirrels.min.css' />
     <meta content="telephone=no" name="format-detection" />
+    <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     
   </head>
@@ -15,7 +14,7 @@
 
 	<div class="body-wrap">
         <!-- 加载页 -->
-        <div id="loadingPage" class="page loading_page">
+         <div id="loadingPage" class="page loading_page">
             <div class="loading_wrap">
                 <img src="/image/loading.png" alt="" class="loading_img">
                 <div class="loading" id="loading">
@@ -78,7 +77,7 @@
 					<a href="javascript:;"><img src="image/youhuijuan.png" alt="" class="youhuijiuan"></a>
 				</div>
 					
-					<a href="javascript:;" class="GetPhoto"><img src="image/get_photo.png" alt="" class="get_photo_btn" style="width:60%;height:auto"></a>
+					<a href="javascript:;" class="GetPhoto"><img src="image/get_photo.png" alt="" class="get_photo_btn" style="width:50%;height:auto"></a>
 				</div>
 				<!-- <img src="image/result_0.png" alt="" class="game_unsucess animated fadeInDown "> -->
 			</div>
@@ -130,17 +129,21 @@
 		<!-- <div id="resultPage" class="page result_page"></div> --> 
 		<!-- 签名图片页 -->
 		<div id="autographPage" class="page autograph_page hidden">
-			<div class="dis_top"></div>
+			<!-- <div class="dis_top"></div> -->
 			<div class="photo_show"> 
 				<!-- 随机显示TFbody签名照片 -->
-				<div class="img_container"></div>
-				<!-- <img src="/image/photo_1.png" alt="" class="photo_img animated fadeInDown" > -->
+				<div class="img_container">
+					
+					
+				</div>
 				<a href="javascript:;" class=" photo_btn" id="getMore">
-					<img src="/image/getmore.png" alt="" >
+					<img src="/image/getmore.png" alt="">
 				</a>
 				<a href="javascript:;" class="photo_btn" id="toBuy">
 					<img src="/image/tobuy.png" alt="">
 				</a>
+				<!-- <img src="/image/photo_1.png" alt="" class="photo_img animated fadeInDown" > -->
+				
 				
 			</div>
 			<div class="dis_bottom"></div>
@@ -150,7 +153,7 @@
 
 
 
-    <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery.min.js"></script>
+   
     <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script> 
     <script type="text/javascript" src="/javascripts/threeSquirrels.js"></script>
   </body>

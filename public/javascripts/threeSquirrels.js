@@ -3,36 +3,80 @@ var $progress = $('#progress')
 var prg = 0
 
 var timer = 0
-
 progress([80, 90], [1, 3], 100)  // 使用数组来表示随机数的区间
 
-window.onload = () => {
-  progress(100, [1, 5], 10, () => {
-    window.setTimeout(() => {  // 延迟了一秒再隐藏loading
-         $loading.hide()
-        $('#loadingPage').hide()
-        $('#welcomePage').show();
-     
-    }, 1000)
-  })
-}
-
-function progress (dist, speed, delay, callback) {
-  var _dist = random(dist)
-  var _delay = random(delay)
-  var _speed = random(speed)
-  window.clearTimeout(timer)
-  timer = window.setTimeout(() => {
-    if (prg + _speed >= _dist) {
-      window.clearTimeout(timer)
-      prg = _dist
-      callback && callback()
-    } else {
-      prg += _speed
-      progress (_dist, speed, delay, callback)
+window.onload = function () {
+  progress(100, [1, 5], 10, function () {
+    window.setTimeout(function () {
+      // 延迟了一秒再隐藏loading
+      $loading.hide();
+      $('#loadingPage').hide();
+      $('#welcomePage').show();
+    }, 1000);
+  });
+var preload = new Array(
+    "http://wrigley.image.alimmdn.com/h5/neibox_1.png",
+    "http://wrigley.image.alimmdn.com/h5/neibox_2.png",
+    "http://wrigley.image.alimmdn.com/h5/neibox_3.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_0.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_1.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_2.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_3.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_4.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_5.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_6.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_7.png",
+    "http://wrigley.image.alimmdn.com/h5/neiheword_8.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_294189.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_1.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_2.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_3.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_4.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_5.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_6.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_7.png",
+    "http://wrigley.image.alimmdn.com/h5/waihe_8.png",
+    "http://wrigley.image.alimmdn.com/h5/message_1.png",
+    "http://wrigley.image.alimmdn.com/h5/message_2.png",
+    "http://wrigley.image.alimmdn.com/h5/message_3.png",
+    "http://wrigley.image.alimmdn.com/h5/message_4.png",
+    "http://wrigley.image.alimmdn.com/h5/message_5.png",
+    "http://wrigley.image.alimmdn.com/h5/message_6.png",
+    "http://wrigley.image.alimmdn.com/h5/message_7.png",
+    "http://wrigley.image.alimmdn.com/h5/kuanshi_1.png",
+    "http://wrigley.image.alimmdn.com/h5/kuanshi_2.png",
+    "http://wrigley.image.alimmdn.com/h5/kuanshi_3.png",
+    "http://wrigley.image.alimmdn.com/h5/logo250112.png",
+    "http://wrigley.image.alimmdn.com/h5/logo_144117.png",
+    "http://wrigley.image.alimmdn.com/h5/logo_144117.png"
+    );
+    
+    for (i = 0; i < preload.length; i++) {
+    images[i] = new Image();
+    images[i].src = preload[i];
     }
-    $progress.css('width',parseInt(prg) + '%')
-  }, _delay)
+
+
+
+  
+};
+
+function progress(dist, speed, delay, callback) {
+  var _dist = random(dist);
+  var _delay = random(delay);
+  var _speed = random(speed);
+  window.clearTimeout(timer);
+  timer = window.setTimeout(function () {
+    if (prg + _speed >= _dist) {
+      window.clearTimeout(timer);
+      prg = _dist;
+      callback && callback();
+    } else {
+      prg += _speed;
+      progress(_dist, speed, delay, callback);
+    }
+    $progress.css('width', parseInt(prg) + '%');
+  }, _delay);
 }
 
 function random (n) {
@@ -45,44 +89,35 @@ function random (n) {
   }
 }
 
-
-    var ts_1=0; //蔓越莓
-    var ts_2=0; //蓝莓干
-    var ts_3=0;//南瓜子
-    var ts_4=0;//脱衣核桃仁
-    var ts_5=0;//山核桃
-    var ts_6=0;//腰果
-    var ts_7=0;//巴旦木
-    var ts_8=0;//榛子
-    var ts_13=0;//炸弹
-    var num =0;//坚果松鼠增加
-    var numz = 10.0; //10s倒计时
-    var imgNumb = 0;
-    var len=0; //已选中的坚果数
-    var ctime = null;//计时器
-    var addTime = null;
-    var ts=0;wh=0,ts=0,top=0;
-    var flag = 0;
-    var pn=0;
-    var images = new Array();
-
+ var ts_1=0; //蔓越莓
+        var ts_2=0; //蓝莓干
+        var ts_3=0;//南瓜子
+        var ts_4=0;//脱衣核桃仁
+        var ts_5=0;//山核桃
+        var ts_6=0;//腰果
+        var ts_7=0;//巴旦木
+        var ts_8=0;//榛子
+        var ts_13=0;//炸弹
+        var num =0;//坚果松鼠增加
+        var numz = 10.0; //10s倒计时
+        var imgNumb = 0;
+        var len=0; //已选中的坚果数
+        var ctime = null;//计时器
+        var addTime = null;
+        var ts=0;wh=0,ts=0,top=0;
+        var flag = 0;
+        var pn=0;
+        var images = new Array();
+    
     $(function(){
 
-        // console.log($('#loadingPage').is(':hidden'))
-        // var confirmLoadingIsShow = $('#loadingPage');
-
-        // if(confirmLoadingIsShow.is(':hidden')){
-        //     $('#welcomePage').delay(1000).show();
-        // }
-        
+        //alert(111)
         FastClick.attach(document.body); 
         var pageHeight = $(window).height() ;
-        $('.game_body').height(pageHeight - 240 -120);
+        $('.game_body').height(pageHeight - 240);
         $('.photo_show').height($('#autographPage').height() - 120) //如果头部低部需要留120px 则高度为-240
-        $('.img_container').height($('#autographPage').height() - 240 - 55);
+        // $('.img_container').height($('#autographPage').height() - 120);
         $('.dis_body').height($('#welcomePage').height() -240)
-
-         // $('#welcomePage,#gamePage,#autographPage').css('display','none')
 
         var imgArr = [1,2,3];
         var val = imgArr[Math.floor(Math.random()*imgArr.length)]
@@ -94,7 +129,8 @@ function random (n) {
             initGame();
 
         })
-        
+       
+
         //开启元气之旅
         $('#openGame').bind('click',function(){
             $('.game_mask').show();
@@ -144,54 +180,10 @@ function random (n) {
             alert('领取成功！')
         })
 
+        preloadimages();
 
-
-        var preload = new Array(
-            "image/4_04.png",
-            "image/4_bg.png",
-            "image/again.png",
-            "image/gamerule.png",
-            "image/get_photo.png",
-            "image/getmore.png",
-            "image/go.png",
-            "image/loading.png",
-            "image/more.png",
-            "image/open.png",
-            "image/photo_1.png",
-            "image/photo_2.png",
-            "image/photo_3.png",
-            "image/readygo.gif",
-            "image/result_0.png",
-            "image/result_1.png",
-            "image/result_10.png",
-            "image/right.png",
-            "image/sprit.png",
-            "image/tfbodys.png",
-            "image/tobuy.png",
-            "image/ts_1.png",
-            "image/ts_2.png",
-            "image/ts_3.png",
-            "image/ts_4.png",
-            "image/ts_5.png",
-            "image/ts_6.png",
-            "image/ts_7.png",
-            "image/ts_8.png",
-            "image/ts_9.png",
-            "image/ts_10.png",
-            "image/ts_11.png",
-            "image/ts_12.png",
-            "image/ts_13.png",
-            "image/welcome.gif",
-            "image/youhuijuan.png",
-        )
-        for (i = 0; i < preload.length; i++) {
-            images[i] = new Image();
-            images[i].src = preload[i];
-        }
-
-
-        
     })
+     
     //初始化游戏
     function initGame(){
         num =0;//坚果松鼠增加
@@ -243,11 +235,12 @@ function random (n) {
                 
                 $('.game_mask').show();
                 $('.game_result_unsuccess').show();
-                // $(".track_ul_"+n).children().remove();
+               
                 if(addTime != null){
                      clearTimeout(addTime);
                      addTime = null;
                 }
+                $(".track_ul_"+n).children().remove();
                 return false;
             })
             //  if(len==8){ //当在时间内len=8时，停止下滑
@@ -278,13 +271,7 @@ function random (n) {
 
 
         }
-        if(numz==0){  //当在时间为0时，停止下滑
-            if(addTime != null){
-                 clearTimeout(addTime);
-                 addTime = null;
-            }
-            return false;
-        }
+        
         $(".track_ul_"+n).children().animate(
             {
                 'top':$(window).height() + 20
@@ -292,8 +279,13 @@ function random (n) {
             //删掉已经显示的元素
             this.remove()
         });
-        if(numz==0){
+        if(numz==0){  //当在时间为0时，停止下滑
+            if(addTime != null){
+                 clearTimeout(addTime);
+                 addTime = null;
+            }
             $(".track_ul_"+n).children().remove()
+            return false;
         }
         if(num%2==0){  //停几秒再掉落
             var addTime =setTimeout(function(){
@@ -465,9 +457,55 @@ function random (n) {
         ctime = setTimeout(backward,100);
         
     }
+
+
+    function preloadimages(){
+
+    }
    //backward();
     
- 
+ // var preload = new Array(
+ //            "image/4_04.png",
+ //            "image/4_bg.png",
+ //            "image/again.png",
+ //            "image/gamerule.png",
+ //            "image/get_photo.png",
+ //            "image/getmore.png",
+ //            "image/go.png",
+ //            "image/loading.png",
+ //            "image/more.png",
+ //            "image/open.png",
+ //            "image/photo_1.png",
+ //            "image/photo_2.png",
+ //            "image/photo_3.png",
+ //            "image/readygo.gif",
+ //            "image/result_0.png",
+ //            "image/result_1.png",
+ //            "image/result_10.png",
+ //            "image/right.png",
+ //            "image/sprit.png",
+ //            "image/tfbodys.png",
+ //            "image/tobuy.png",
+ //            "image/ts_1.png",
+ //            "image/ts_2.png",
+ //            "image/ts_3.png",
+ //            "image/ts_4.png",
+ //            "image/ts_5.png",
+ //            "image/ts_6.png",
+ //            "image/ts_7.png",
+ //            "image/ts_8.png",
+ //            "image/ts_9.png",
+ //            "image/ts_10.png",
+ //            "image/ts_11.png",
+ //            "image/ts_12.png",
+ //            "image/ts_13.png",
+ //            "image/welcome.gif",
+ //            "image/youhuijuan.png",
+ //        )
+ //        for (i = 0; i < preload.length; i++) {
+ //            images[i] = new Image();
+ //            images[i].src = preload[i];
+ //        }
     
     
    
