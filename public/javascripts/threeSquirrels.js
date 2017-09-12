@@ -15,40 +15,42 @@ window.onload = function () {
     }, 1000);
   });
 var preload = new Array(
-    "http://wrigley.image.alimmdn.com/h5/neibox_1.png",
-    "http://wrigley.image.alimmdn.com/h5/neibox_2.png",
-    "http://wrigley.image.alimmdn.com/h5/neibox_3.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_0.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_1.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_2.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_3.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_4.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_5.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_6.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_7.png",
-    "http://wrigley.image.alimmdn.com/h5/neiheword_8.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_294189.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_1.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_2.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_3.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_4.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_5.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_6.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_7.png",
-    "http://wrigley.image.alimmdn.com/h5/waihe_8.png",
-    "http://wrigley.image.alimmdn.com/h5/message_1.png",
-    "http://wrigley.image.alimmdn.com/h5/message_2.png",
-    "http://wrigley.image.alimmdn.com/h5/message_3.png",
-    "http://wrigley.image.alimmdn.com/h5/message_4.png",
-    "http://wrigley.image.alimmdn.com/h5/message_5.png",
-    "http://wrigley.image.alimmdn.com/h5/message_6.png",
-    "http://wrigley.image.alimmdn.com/h5/message_7.png",
-    "http://wrigley.image.alimmdn.com/h5/kuanshi_1.png",
-    "http://wrigley.image.alimmdn.com/h5/kuanshi_2.png",
-    "http://wrigley.image.alimmdn.com/h5/kuanshi_3.png",
-    "http://wrigley.image.alimmdn.com/h5/logo250112.png",
-    "http://wrigley.image.alimmdn.com/h5/logo_144117.png",
-    "http://wrigley.image.alimmdn.com/h5/logo_144117.png"
+    "image/4_04.png",
+    "image/4_bg.png",
+    "image/again.png",
+    "image/gamerule.png",
+    "image/get_photo.png",
+    "image/getmore.png",
+    "image/go.png",
+    "image/loading.png",
+    "image/more.png",
+    "image/open.png",
+    "image/photo_1.png",
+    "image/photo_2.png",
+    "image/photo_3.png",
+    "image/readygo.gif",
+    "image/result_0.png",
+    "image/result_1.png",
+    "image/result_10.png",
+    "image/right.png",
+    "image/sprit.png",
+    "image/tfbodys.png",
+    "image/tobuy.png",
+    "image/ts_1.png",
+    "image/ts_2.png",
+    "image/ts_3.png",
+    "image/ts_4.png",
+    "image/ts_5.png",
+    "image/ts_6.png",
+    "image/ts_7.png",
+    "image/ts_8.png",
+    "image/ts_9.png",
+    "image/ts_10.png",
+    "image/ts_11.png",
+    "image/ts_12.png",
+    "image/ts_13.png",
+    "image/welcome.gif",
+    "image/youhuijuan.png"
     );
     
     for (i = 0; i < preload.length; i++) {
@@ -114,7 +116,7 @@ function random (n) {
         //alert(111)
         FastClick.attach(document.body); 
         var pageHeight = $(window).height() ;
-        $('.game_body').height(pageHeight - 240);
+        $('.game_body').height(pageHeight - 240 - 30);
         $('.photo_show').height($('#autographPage').height() - 120) //如果头部低部需要留120px 则高度为-240
         // $('.img_container').height($('#autographPage').height() - 120);
         $('.dis_body').height($('#welcomePage').height() -240)

@@ -36,9 +36,9 @@ gulp.task('styles', function() {
         .pipe(sass())
         .pipe(autoprefixer({browsers: ['last 2 version', '> 5%']}))
 
-        .pipe(rename({
-            suffix: '.min'  
-        }))
+        // .pipe(rename({
+        //     suffix: '.min'  
+        // }))
         .pipe(minifycss())
         .pipe(clean({
             compatibility: 'ie8'
