@@ -9,7 +9,7 @@ Node + Express + JS + H5 + CSS3
 ## 项目运行
 
 ```
-git clone https://github.com/bailicangdu/vue2-elm.git  
+git clone git@github.com:xmtgithub123/MyThreeSquirrels.git 
 
 cd MyThreeSquirrels
 
@@ -18,7 +18,8 @@ npm install
 npm start
 
 ```
-
 # 说明
 
 > 如果您觉得有兴趣或者在某个地方帮助到您，您可以点右上角 ‘star’ 支持小的一下哈，三扣思密哒 ~
+
+> 稍后些，会附上H5的效果图
