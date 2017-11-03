@@ -91,7 +91,7 @@ function random (n) {
   }
 }
 
- var ts_1=0; //蔓越莓
+        var ts_1=0; //蔓越莓
         var ts_2=0; //蓝莓干
         var ts_3=0;//南瓜子
         var ts_4=0;//脱衣核桃仁
