@@ -21,8 +21,37 @@ npm start
 
 # 项目布局
 
+```
+├── bin         
+│   ├── www                                     // 项目启动文件 
+├── dist                                        // 编译目录 
+│   ├── sass                                    // sass目录  
+│   │   ├── style-threeSquirrels.scss           // sass源文件 
+├── public                                      // 公共文件
+│   ├── images                                  // 图片 
+│   ├── javascripts                             // 脚本文件 
+│   ├── stylesheets                             // 编译压缩后的样式文件 
+├── routes                                      // nodejs路由配置文件 
+│   ├── index.ejs
+│   ├── users.ejs
+├── views                                       // 视图页
+│   ├── ThreeSquirrels.ejs                      // 游戏主页 
+├── app.js                                      // 配置文件、一些中间件的配置
+├── gulpfile.js                                 // gulp配置文件，加载组件模块
+├── package.json                                // 项目依赖包、脚本、描述信息
+
+```
+  
+
+# 部分截图
+
+### 游戏界面
+<img src="https://github.com/xmtgithub123/MyThreeSquirrels/public/image/m1.png" alt="" width="365" height="619">
+
+<img src="https://github.com/xmtgithub123/MyThreeSquirrels/public/image/m2.png" alt="">
+
+<img src="https://github.com/xmtgithub123/MyThreeSquirrels/public/image/m3.png" alt="">
+
 # 说明
 
 > 如果您觉得有兴趣或者在某个地方帮助到您，您可以点右上角 ‘star’ 支持小的一下哈，三扣思密哒 ~
-
-> 稍后些，会附上H5的效果图
