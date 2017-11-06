@@ -46,10 +46,12 @@ npm start
 # 部分截图
 
 ### 游戏界面
-<img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m1.png" alt="" width="365" height="619">
+
+<img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m00.png" alt="" width="365" height="619"><img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m0.png" alt="" width="365" height="619">
+
+<img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m4.png" alt="" width="365" height="619"><img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m1.png" alt="" width="365" height="619">
 
 <img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m2.png" alt="" width="365" height="619">
-
 <img src="https://github.com/xmtgithub123/MyThreeSquirrels/raw/master/public/image/m3.png" alt="" width="365" height="619">
 
 # 说明
