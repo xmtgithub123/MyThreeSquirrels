@@ -461,53 +461,8 @@ function random (n) {
     }
 
 
-    function preloadimages(){
+    //function preloadimages(){
 
-    }
-   //backward();
-    
- // var preload = new Array(
- //            "image/4_04.png",
- //            "image/4_bg.png",
- //            "image/again.png",
- //            "image/gamerule.png",
- //            "image/get_photo.png",
- //            "image/getmore.png",
- //            "image/go.png",
- //            "image/loading.png",
- //            "image/more.png",
- //            "image/open.png",
- //            "image/photo_1.png",
- //            "image/photo_2.png",
- //            "image/photo_3.png",
- //            "image/readygo.gif",
- //            "image/result_0.png",
- //            "image/result_1.png",
- //            "image/result_10.png",
- //            "image/right.png",
- //            "image/sprit.png",
- //            "image/tfbodys.png",
- //            "image/tobuy.png",
- //            "image/ts_1.png",
- //            "image/ts_2.png",
- //            "image/ts_3.png",
- //            "image/ts_4.png",
- //            "image/ts_5.png",
- //            "image/ts_6.png",
- //            "image/ts_7.png",
- //            "image/ts_8.png",
- //            "image/ts_9.png",
- //            "image/ts_10.png",
- //            "image/ts_11.png",
- //            "image/ts_12.png",
- //            "image/ts_13.png",
- //            "image/welcome.gif",
- //            "image/youhuijuan.png",
- //        )
- //        for (i = 0; i < preload.length; i++) {
- //            images[i] = new Image();
- //            images[i].src = preload[i];
- //        }
-    
-    
+    //}
+  
    
